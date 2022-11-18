@@ -1,0 +1,14 @@
+.restaurant_all{
+  display: flex;
+  justify-content: space-between;
+}
+
+.restaurant{
+  width: 23%;
+}
+
+.picture{
+  border: solid black 2px;
+  height: 100px;
+  width: 100%;
+}

@@ -14,3 +14,11 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 Route::get('/home', [ReseController::class, 'index']);
+
+Route::get('/admin', [ReseController::class, 'create']);
+Route::get('/edit', [ReseController::class, 'edit']);
+Route::post('/edit', [ReseController::class, 'update']);
+Route::get('/delete', [ReseController::class, 'delete']);
+Route::post('/delete', [ReseController::class, 'remove']);
+Route::get('/search', [ReseController::class, 'search']);
+Route::post('/search', [ReseController::class, 'search']);

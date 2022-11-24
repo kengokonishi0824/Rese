@@ -9,7 +9,9 @@
 <div class="restaurant_all">
   @foreach ($restaurants as $restaurant)
   <div class="restaurant">
-    <div class="picture"></div>
+    <div class="picture">
+      <img src="{{$restaurant->picture}}">
+    </div>
     <div class="contents">
       <p class="restaurant_name">{{$restaurant->name}}</p>
       <p>#{{$restaurant->location}} #{{$restaurant->category}}</p>
@@ -17,6 +19,7 @@
   </div>
   @endforeach
 </div>
+
 
 
 

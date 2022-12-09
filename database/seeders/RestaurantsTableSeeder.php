@@ -4,6 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Restaurant;
+use App\Models\Prefecture;
+use App\Models\Category;
+
 
 class RestaurantsTableSeeder extends Seeder
 {
@@ -16,13 +19,42 @@ class RestaurantsTableSeeder extends Seeder
     {
         $param = [
             'name' => '仙人',
-            'prefecture_id' => '',
-            'category_id' => '',
+            'prefecture_id' => Prefecture::all()->random()->id,
+            'category_id' => Category::all()->random()->id,
             'overview' => '',
             'picture' =>'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/sushi.jpg'
 
     ];
     Restaurant::create($param);
         
+    $param = [
+            'name' => '仙人',
+            'prefecture_id' => Prefecture::all()->random()->id,
+            'category_id' => Category::all()->random()->id,
+            'overview' => '',
+            'picture' =>'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/sushi.jpg'
+
+    ];
+    Restaurant::create($param);
+
+    $param = [
+            'name' => '仙人',
+            'prefecture_id' => Prefecture::all()->random()->id,
+            'category_id' => Category::all()->random()->id,
+            'overview' => '',
+            'picture' =>'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/sushi.jpg'
+
+    ];
+    Restaurant::create($param);
+
+    $param = [
+            'name' => '仙人',
+            'prefecture_id' => Prefecture::all()->random()->id,
+            'category_id' => Category::all()->random()->id,
+            'overview' => '',
+            'picture' =>'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/sushi.jpg'
+
+    ];
+    Restaurant::create($param);
     }
 }

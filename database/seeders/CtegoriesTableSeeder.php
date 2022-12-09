@@ -15,15 +15,19 @@ class CtegoriesTableSeeder extends Seeder
     public function run()
     {
     $param = [
-    'category' => 'らーめん'
-    ];
-    Category::create($param);
-    $param = [
     'category' => '寿司'
     ];
     Category::create($param);
     $param = [
+    'category' => '焼肉'
+    ];
+    Category::create($param);
+    $param = [
     'category' => 'イタリアン'
+    ];
+    Category::create($param);
+    $param = [
+    'category' => 'ラーメン'
     ];
     Category::create($param);
     }

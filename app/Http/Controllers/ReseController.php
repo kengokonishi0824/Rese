@@ -3,33 +3,43 @@
 namespace App\Http\Controllers;
 
 use App\Models\Restaurant;
+use App\Models\Prefecture;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class ReseController extends Controller
 {
     public function index()
     {
-    $restaurants = Restaurant::paginate(4);
-    return view('index', ['restaurants' => $restaurants]);
+        $restaurants = Restaurant::all();
+        return view('index', ['restaurants' => $restaurants]);
     }
+
+    
 
     public function admin()
     {
-        return view('admin');
+        $restaurants = Restaurant::all();
+        $prefectures = Prefecture::all();
+        $categories = Category::all();
+        $param = ['restaurants' => $restaurants,'prefectures' => $prefectures,'categories' => $categories];
+        return view('admin',$param);
     }
+
     public function create(Request $request)
     {
         $form = $request->all();
         Restaurant::create($form);
         return redirect('admin');
     }
-    public function edit(Request $request)
+        public function edit(Request $request)
     {
-        $category = Category::find($request->id);
-        $prefecture = Prefecture::find($request->id);
-        return view('edit', ['form' => $category, $prefecture]);
+        $restaurant = Restaurant::find($request->id);
+        $prefecture = Prefecture::find($request->prefecture_id);
+        $category = Category::find($request->category_id);
+        return view('edit', ['form' => $restaurant, $prefecture,$category]);
     }
-    public function update(TodoRequest $request)
+    public function update(Request $request)
     {
         $form = $request->all();
         unset($form['_token']);
@@ -39,12 +49,13 @@ class ReseController extends Controller
 
     public function delete(Request $request)
     {
-        $todo = Restaurant::find($request->id);
+        $todo = Todo::find($request->id);
         return view('delete', ['form' => $todo]);
     }
     public function remove(Request $request)
     {
-        Restaurant::find($request->id)->delete();
-        return redirect('admin');
+        Todo::find($request->id)->delete();
+        return redirect('home');
     }
 }
+

@@ -9,16 +9,30 @@
 <div class="restaurant_all">
   @foreach ($restaurants as $restaurant)
   <div class="restaurant">
-    <div class="picture">
-      <img src="{{$restaurant->picture}}">
+    <div class="">
+      <img src="{{$restaurant->picture}}" class="picture">
     </div>
     <div class="contents">
       <p class="restaurant_name">{{$restaurant->name}}</p>
-      <p>#{{$restaurant->location}} #{{$restaurant->category}}</p>
-  </div>
+      <p>#{{$restaurant->prefecture_id}} #{{$restaurant->category_id}}</p>
+    </div>
   </div>
   @endforeach
 </div>
+
+
+@foreach ($restaurants as $restaurant)
+
+<div class="">
+      <p class="">{{$restaurant->name}}</p>
+      <p>#{{$restaurant->prefecture_id}} #{{$restaurant->category_id}}</p>
+</div>
+
+  @endforeach
+
+
+
+
 
 
 

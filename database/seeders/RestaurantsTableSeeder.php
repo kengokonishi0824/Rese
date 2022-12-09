@@ -19,7 +19,7 @@ class RestaurantsTableSeeder extends Seeder
     {
         $param = [
             'name' => '仙人',
-            'prefecture_id' => Prefecture::all()->random()->id,
+            'prefecture_id' => Prefecture::all()->where('prefecture','東京')->first()->id,//面談メモ
             'category_id' => Category::all()->random()->id,
             'overview' => '料理長厳選の食材から作る寿司を用いたコースをぜひお楽しみください。食材・味・価格、お客様の満足度を徹底的に追及したお店です。特別な日のお食事、ビジネス接待まで気軽に使用することができます。',
             'picture' =>'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/sushi.jpg'

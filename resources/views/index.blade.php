@@ -34,7 +34,7 @@
     </div>
     <div class="contents">
       <p class="restaurant_name">{{$restaurant->name}}</p>
-      <p>#{{$restaurant->prefecture_id}} #{{$restaurant->category_id}}</p>
+      <p>#{{$restaurant->prefecture->prefecture}} #{{$restaurant->category->category}}</p>
     </div>
   </div>
   @endforeach

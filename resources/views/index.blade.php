@@ -7,7 +7,7 @@
 </head>
 
 <div class="search-box">
-  <form action="search" method="POST">
+  <form action="find" method="post">
   @csrf
   <select name="prefecture_id" class="select-tag">
             <option value="">All area</option>
@@ -23,7 +23,7 @@
     </select>
   <input type="text" name="name" class="todo-add-form">
   <input type="submit" value="検索" class= "button-add">
-    </form>
+  </form>
 </div>
 
 <div class="restaurant_all">

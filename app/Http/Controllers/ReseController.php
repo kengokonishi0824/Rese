@@ -24,11 +24,11 @@ class ReseController extends Controller
         return view('search', ['name' => $name, 'prefecture_id' => $prefecture_id, 'category_id' => $category_id]);
     }
 
-public function search(Request $request)
+    public function search(Request $request)
     {
         $name = $request['name'];
         $prefecture_id = $request['prefecture_id'];
-        $category_id= $request['category_id'];
+        $category_id = $request['category_id'];
         $restaurants = Restaurant::doSearch($name, $prefecture_id, $category_id);
         return view('search', ['name' => $name, 'prefecture_id' => $prefecture_id, 'category_id' => $category_id]);
     }

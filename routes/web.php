@@ -21,4 +21,4 @@ Route::post('/edit', [ReseController::class, 'update']);
 Route::get('/delete', [ReseController::class, 'delete']);
 Route::post('/delete', [ReseController::class, 'remove']);
 Route::get('/find', [ReseController::class, 'find']);
-Route::get('/search', [ReseController::class, 'search']);
+Route::post('/search', [ReseController::class, 'search']);

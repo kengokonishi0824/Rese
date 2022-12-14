@@ -7,7 +7,7 @@
 </head>
 
 <div class="search-box">
-  <form action="search" method="POST">
+  <form action="search" method="get">
   @csrf
   <select name="prefecture_id" class="select-tag">
             <option value="">All area</option>

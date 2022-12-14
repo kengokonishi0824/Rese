@@ -20,11 +20,11 @@ class ReseController extends Controller
 
     public function find()
     {
-        $restaurant = [];
+        $restaurants = [];
         return view('search', ['name' => $name, 'prefecture_id' => $prefecture_id, 'category_id' => $category_id]);
     }
 
-public function search(Request $request)
+    public function search(Request $request)
     {
         $name = $request['name'];
         $prefecture_id = $request['prefecture_id'];

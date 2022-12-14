@@ -7,8 +7,7 @@
 </head>
 
 <div class="search-box">
-  <form action="search" method="POST">
-  @csrf
+  <form action="/search" method="GET">
   <select name="prefecture_id" class="select-tag">
             <option value="">All area</option>
       @foreach ($prefectures as $prefecture)

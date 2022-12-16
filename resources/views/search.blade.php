@@ -21,7 +21,7 @@
             <option value="{{$category->id}}">{{$category->category}}</option>
       @endforeach
     </select>
-  <input type="text" name="input" class="todo-add-form">
+  <input type="text" name="name" class="todo-add-form">
   <input type="submit" value="検索" class= "button-add">
     </form>
 </div>

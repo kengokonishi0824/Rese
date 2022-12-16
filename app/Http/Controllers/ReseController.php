@@ -9,13 +9,17 @@ use Illuminate\Http\Request;
 
 class ReseController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $restaurants = Restaurant::all();
         $prefectures = Prefecture::all();
         $categories = Category::all();
-        $param = ['restaurants' => $restaurants,'prefectures' => $prefectures,'categories' => $categories];
-        return view('index',$param);
+        $name = $request['name'];
+        $prefecture_id = $request['prefecture_id'];
+        $category_id= $request['category_id'];
+        //$restaurants = Restaurant::all();
+        $restaurants = Restaurant::doSearch($name, $prefecture_id, $category_id);
+        $param = ['prefectures' => $prefectures,'categories' => $categories];
+        return view('index', ['restaurants' => $restaurants,'name' => $name, 'prefecture_id' => $prefecture_id, 'category_id' => $category_id],$param);
     }
 
     public function find()
@@ -24,13 +28,17 @@ class ReseController extends Controller
         return view('search', ['name' => $name, 'prefecture_id' => $prefecture_id, 'category_id' => $category_id]);
     }
 
-    public function search(Request $request)
+public function search(Request $request)
     {
+        $prefectures = Prefecture::all();
+        $categories = Category::all();
         $name = $request['name'];
         $prefecture_id = $request['prefecture_id'];
         $category_id = $request['category_id'];
         $restaurants = Restaurant::doSearch($name, $prefecture_id, $category_id);
-        return view('search', ['name' => $name, 'prefecture_id' => $prefecture_id, 'category_id' => $category_id]);
+        $param = ['prefectures' => $prefectures,'categories' => $categories];
+        return view('search', ['restaurants' => $restaurants,'name' => $name, 'prefecture_id' => $prefecture_id, 'category_id' => $category_id],$param);
+        
     }
 
     public function admin()

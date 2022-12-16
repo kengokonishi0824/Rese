@@ -6,9 +6,25 @@
   <title>restarants_detail</title>
 </head>
 
-<p>detail画面</p>
+<div class="detail-page">
+  <div class="detail-left">
+    <p>detail画面</p>
+    <div class="detail-top">
+      <p class="btn-back">
+        <a class="detail-back" href=/home><</a>
+        <span class="detail-restaurant">{{$restaurants->name}}</span>
+      </p>
+    </div>
+    <img src="{{$restaurants->picture}}" class="detail-picture">
+    <p class="">#{{$restaurants->prefecture->prefecture}} #{{$restaurants->category->category}}</p>
+    <p class="">{{$restaurants->overview}}</p>
+  </div>
+  <div class="detail-right">
+    <div class="reservation-box">
+      <p class="yoyaku">予約</p>
+    </div>
+  </div>
+    
+</div>
 
-<p class="">{{$restaurants->name}}</p>
-<img src="{{$restaurants->picture}}" class="">
-<p class="">#{{$restaurants->prefecture->prefecture}} #{{$restaurants->category->category}}</p>
-<p class="">{{$restaurants->overview}}</p>
+

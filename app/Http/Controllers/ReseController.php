@@ -28,7 +28,7 @@ class ReseController extends Controller
         return view('search', ['name' => $name, 'prefecture_id' => $prefecture_id, 'category_id' => $category_id]);
     }
 
-    public function search(Request $request)
+public function search(Request $request)
     {
         $prefectures = Prefecture::all();
         $categories = Category::all();

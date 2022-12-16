@@ -41,11 +41,8 @@ body {
 }
 
 .picture{
-<<<<<<< HEAD
-=======
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
->>>>>>> 1fffcc0 (CSS_arrangement_roughly)
   height: 100px;
   width: 100%;
 }

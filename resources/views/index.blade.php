@@ -34,7 +34,7 @@
       <img src="{{$restaurant->picture}}" class="picture">
       <p class="restaurant_name">{{$restaurant->name}}</p>
       <p class="restaurant_tag">#{{$restaurant->prefecture->prefecture}} #{{$restaurant->category->category}}</p>
-      <a class="btn_detail" href="">詳しく見る</a>
+      <a class="btn_detail" href="/detail/{{$restaurant->id}}">詳しく見る</a>
   </div>
   @endforeach
 </div>

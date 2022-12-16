@@ -17,4 +17,20 @@ class Restaurant extends Model
     public function category(){
 				return $this->belongsTo('App\Models\Category');
     }
+
+    public static function doSearch($name, $prefecture_id,  $category_id)
+    {
+        $query = self::query();
+        if (!empty($name)) {
+            $query->where('name', 'like binary', "%{$name}%");
+        }
+        if (!empty($prefecture_id)) {
+            $query->where('prefecture_id','like binary',  "%{$prefecture_id}%");
+        }
+        if (!empty($category_id)) {
+            $query->where('category_id','like binary',  "%{$category_id}%");
+        }
+        $results = $query->paginate();
+        return $results;
+    }
 }

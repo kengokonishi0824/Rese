@@ -8,7 +8,6 @@
 
 <div class="search-box">
   <form action="/home" method="GET">
-  <form action="/search" method="GET">
   <select name="prefecture_id" class="select-tag">
             <option value="0">All area</option>
       @foreach ($prefectures as $prefecture)

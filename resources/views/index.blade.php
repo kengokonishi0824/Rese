@@ -6,6 +6,13 @@
   <title>restarants_all</title>
 </head>
 
+@if (Auth::check())
+  <p>ログイン中ユーザー: {{$user->id}}</p>
+@else
+  <p>ログインなし。（<a href="/login">ログイン</a>｜
+  <a href="/register">登録</a>）</p>
+@endif
+
 <div class="search-box">
   <form action="/home" method="GET">
   <select name="prefecture_id" class="select-tag">
@@ -30,7 +37,20 @@
       <img src="{{$restaurant->picture}}" class="picture">
       <p class="restaurant_name">{{$restaurant->name}}</p>
       <p class="restaurant_tag">#{{$restaurant->prefecture->prefecture}} #{{$restaurant->category->category}}</p>
-      <a class="btn_detail" href="/detail/{{$restaurant->id}}">詳しく見る</a>
+      <div class="links">
+        <a class="btn_detail" href="/detail/{{$restaurant->id}}">
+          詳しく見る
+        </a>
+        @if($like)
+        <a href="{{route('unlike', $restaurant)}}" class=btn-like>
+          あかん
+        </a>
+        @else
+        <a href="{{route('like', $restaurant)}}" class=btn-like>
+          いいね
+        </a>
+        @endif
+      </div>
   </div>
   @endforeach
 </div>

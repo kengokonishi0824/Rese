@@ -7,16 +7,15 @@
 </head>
 
 <div class="search-box">
-  <form action="find" method="post">
-  @csrf
+  <form action="/home" method="GET">
   <select name="prefecture_id" class="select-tag">
-            <option value="">All area</option>
+            <option value="0">All area</option>
       @foreach ($prefectures as $prefecture)
             <option value="{{$prefecture->id}}">{{$prefecture->prefecture}}</option>
       @endforeach
     </select>
   <select name="category_id" class="select-tag">
-            <option value="">All genre</option>
+            <option value="0">All genre</option>
       @foreach ($categories as $category)
             <option value="{{$category->id}}">{{$category->category}}</option>
       @endforeach

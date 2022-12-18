@@ -55,7 +55,6 @@
   @endforeach
 </div>
 
-<p>{{$likes->user_id=$user->id}}</p>
 
 
 

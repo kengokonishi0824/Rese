@@ -41,15 +41,15 @@
         <a class="btn_detail" href="/detail/{{$restaurant->id}}">
           詳しく見る
         </a>
-        
+        @if($restaurant->like->first() != null)
         <a href="{{route('unlike', $restaurant)}}" class=btn-like>
           あかん
         </a>
-        
+        @else
         <a href="{{route('like', $restaurant)}}" class=btn-like>
           いいね
         </a>
-        
+        @endif
       </div>
   </div>
   @endforeach

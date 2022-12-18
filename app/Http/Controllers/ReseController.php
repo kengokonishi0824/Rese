@@ -23,8 +23,7 @@ class ReseController extends Controller
         $id = $request['id'];
         //$restaurant = Restaurant::all();
         $restaurants = Restaurant::doSearch($name, $prefecture_id, $category_id);
-        $likes = Like::where('restaurant_id',$restaurants->id)->where('user_id',$user->id)->first();
-        $param = ['user' => $user,'prefectures' => $prefectures,'categories' => $categories,'likes' => $likes];
+        $param = ['user' => $user,'prefectures' => $prefectures,'categories' => $categories];
         return view('index', ['restaurants' => $restaurants,'name' => $name, 'prefecture_id' => $prefecture_id, 'category_id' => $category_id, 'id' => $id],$param);
     }
 

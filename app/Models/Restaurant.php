@@ -30,7 +30,11 @@ class Restaurant extends Model
         if (!empty($category_id)) {
             $query->where('category_id','like binary',  "%{$category_id}%");
         }
-        $results = $query->paginate();
+        $results = $query->get();
         return $results;
+    }
+
+    public function like(){
+        return $this->hasMany('App\Models\Like');
     }
 }

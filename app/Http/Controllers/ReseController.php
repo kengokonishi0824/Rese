@@ -41,6 +41,12 @@ public function search(Request $request)
         
     }
 
+    public function detail($id)
+    {
+        $restaurants = Restaurant::all()->find($id);
+        return view('detail',['restaurants' => $restaurants]);
+
+    }
     public function admin()
     {
         $restaurants = Restaurant::all();

@@ -1,13 +1,132 @@
+body {
+  background-color: #EEEEEE;
+}
+.search-box{
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px 0 black;
+  width: 40%;
+  height: 30px;
+  margin-left: 55%;
+  margin-bottom: 20px;
+  align-content: right;
+}
+
+.select-tag {
+  margin: 0;
+  border: 0;
+  outline: none;
+  padding: 0;
+}
+
+.search-form{
+  margin: 0;
+  border: 0;
+  outline: none;
+  padding: 0;
+}
+
 .restaurant_all{
   display: flex;
   flex-wrap: wrap;
 }
 
 .restaurant{
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px 0 black;
   width: 23%;
+  margin-right: 10px;
+  margin-bottom: 20px;
 }
 
 .picture{
+<<<<<<< HEAD
+=======
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+>>>>>>> 1fffcc0 (CSS_arrangement_roughly)
   height: 100px;
-  width: 180px;
+  width: 100%;
+}
+
+.restaurant_name{
+  font-size: 17px;
+  line-height: 1px;
+  margin-left: 10px;
+}
+
+.restaurant_tag{
+  font-size: 10px;
+  margin-left: 10px;
+}
+
+.btn_detail{
+  display: inline-block;
+  color: white;
+  background-color: #315DFF;
+  text-decoration: none;
+  margin-bottom: 10px;
+  font-size: 10px;
+  margin-left: 10px;
+  padding: 4px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+}
+
+.detail-top{
+  display: flex;
+}
+
+.detail-back{
+  border: 1px solid;
+  background-color: #EEEEEE;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px 0 black;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  height: 25px;
+  width: 25px;
+  text-align: center;
+  line-height: 20px;
+}
+
+.detail-restaurant{
+  font-size: 25px;
+  margin-left: 10px;
+}
+
+.detail-picture{
+  width: 100%;
+}
+
+.detail-page{
+  display: flex;
+  justify-content: space-between;
+}
+
+.detail-left{
+  width: 50%;
+  padding-left: 5%;
+  padding-right: 2.5%;
+}
+
+.detail-right{
+  width: 50%;
+  padding-left: 2.5%;
+  padding-right: 5%;
+}
+
+.reservation-box{
+  border: #315DFF solid 1px;
+  background-color: #305DFF;
+  height: 100%;
+}
+
+.yoyaku{
+  color: #EEEEEE;
+  font-size: 25px;
+  padding-left: 15px;
 }

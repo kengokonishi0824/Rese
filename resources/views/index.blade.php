@@ -8,6 +8,7 @@
 
 <div class="search-box">
   <form action="/home" method="GET">
+  <form action="/search" method="GET">
   <select name="prefecture_id" class="select-tag">
             <option value="0">All area</option>
       @foreach ($prefectures as $prefecture)
@@ -23,18 +24,17 @@
   <input type="text" name="name" class="todo-add-form">
   <input type="submit" value="検索" class= "button-add">
   </form>
+  <input type="text" name="name" placeholder="Search..." class="search-form">
+    </form>
 </div>
 
 <div class="restaurant_all">
   @foreach ($restaurants as $restaurant)
   <div class="restaurant">
-    <div class="">
       <img src="{{$restaurant->picture}}" class="picture">
-    </div>
-    <div class="contents">
       <p class="restaurant_name">{{$restaurant->name}}</p>
-      <p>#{{$restaurant->prefecture->prefecture}} #{{$restaurant->category->category}}</p>
-    </div>
+      <p class="restaurant_tag">#{{$restaurant->prefecture->prefecture}} #{{$restaurant->category->category}}</p>
+      <a class="btn_detail" href="/detail/{{$restaurant->id}}">詳しく見る</a>
   </div>
   @endforeach
 </div>

@@ -12,25 +12,20 @@ use Illuminate\Http\Request;
 
 class ReseController extends Controller
 {
-    public function index(Restaurant $restaurant, Request $request)
+    public function index(Request $request)
     {
         $user = Auth::user();
-        $like = Like::where('restaurant_id', $restaurant -> id) -> where('user_id', $user)->first();
         $prefectures = Prefecture::all();
         $categories = Category::all();
         $name = $request['name'];
         $prefecture_id = $request['prefecture_id'];
         $category_id= $request['category_id'];
-        //$restaurants = Restaurant::all();
+        $id = $request['id'];
+        //$restaurant = Restaurant::all();
         $restaurants = Restaurant::doSearch($name, $prefecture_id, $category_id);
-        $param = ['user' => $user, 'like' => $like, 'prefectures' => $prefectures,'categories' => $categories];
-        return view('index', ['restaurants' => $restaurants,'name' => $name, 'prefecture_id' => $prefecture_id, 'category_id' => $category_id],$param);
-    }
-
-    public function show(Restaurant $restaurant)
-    {  
-        $like = Like::where('restaurant_id', $restaurant -> id) -> where('user_id', $user)->first();
-        return view('index', compact('reataurant', 'like'));
+        $likes = Like::where('restaurant_id',$restaurants->id)->where('user_id',$user->id)->first();
+        $param = ['user' => $user,'prefectures' => $prefectures,'categories' => $categories,'likes' => $likes];
+        return view('index', ['restaurants' => $restaurants,'name' => $name, 'prefecture_id' => $prefecture_id, 'category_id' => $category_id, 'id' => $id],$param);
     }
 
     public function find()

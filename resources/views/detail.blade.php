@@ -6,6 +6,12 @@
   <title>restarants_detail</title>
 </head>
 
+@if (Auth::check())
+  <p>ログイン中ユーザー: {{$user->id}}</p>
+@else
+  <p>ログインなし。（<a href="/login">ログイン</a>｜
+  <a href="/register">登録</a>）</p>
+@endif
 <div class="detail-page">
   <div class="detail-left">
     <p>detail画面</p>

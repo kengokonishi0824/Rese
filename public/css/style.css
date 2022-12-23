@@ -60,6 +60,12 @@ body {
   margin-left: 10px;
 }
 
+.links{
+  display: flex;
+  justify-content: space-between;
+
+}
+
 .btn_detail{
   display: inline-block;
   color: white;
@@ -72,6 +78,14 @@ body {
   border-radius: 5px;
   cursor: pointer;
   outline: none;
+}
+
+.btn-like{
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  padding-right: 30px;
+  padding-left: 30px;
 }
 
 .detail-top{

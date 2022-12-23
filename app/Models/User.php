@@ -43,6 +43,6 @@ class User extends Authenticatable
     ];
 
     public function like(){
-        return $this->hasMany('App\Models\Like');
+        return $this->hasMany('App\Models\Like')->first();
     }
 }

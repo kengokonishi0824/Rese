@@ -45,4 +45,8 @@ class User extends Authenticatable
     public function like(){
         return $this->hasMany('App\Models\Like')->first();
     }
+
+    public function reservation(){
+        return $this->hasMany('App\Models\Reservation');
+    }
 }

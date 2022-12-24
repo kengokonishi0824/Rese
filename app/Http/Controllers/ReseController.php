@@ -6,7 +6,9 @@ use App\Models\Restaurant;
 use App\Models\Prefecture;
 use App\Models\Category;
 use App\Models\Like;
+use App\Models\Reservation;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\ReservationRequest;
 use Illuminate\Http\Request;
 
 
@@ -46,8 +48,17 @@ class ReseController extends Controller
         $user = Auth::user();
         $restaurants = Restaurant::all()->find($id);
         return view('detail',['user' =>$user,'restaurants' => $restaurants]);
-
     }
+
+    public function reservation(Request $request)
+    {
+        $form = $request->all();
+        $restaurants = Restaurant::find($request->id);
+        $user = Auth::user() -> id;
+        Reservation::create($form);
+        return redirect('thanks');
+    }
+
     public function admin()
     {
         $restaurants = Restaurant::all();

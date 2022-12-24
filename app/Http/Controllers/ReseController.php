@@ -53,10 +53,8 @@ class ReseController extends Controller
     public function reservation(Request $request)
     {
         $form = $request->all();
-        $restaurants = Restaurant::find($request->id);
-        $user = Auth::user() -> id;
         Reservation::create($form);
-        return redirect('thanks');
+        return view('thanks');
     }
 
     public function admin()

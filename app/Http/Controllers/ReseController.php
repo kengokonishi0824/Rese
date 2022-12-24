@@ -17,32 +17,13 @@ class ReseController extends Controller
         $user = Auth::user();
         $prefectures = Prefecture::all();
         $categories = Category::all();
+        $likes = Like::all();
         $name = $request['name'];
         $prefecture_id = $request['prefecture_id'];
         $category_id= $request['category_id'];
-        $id = $request['id'];
-        //$restaurant = Restaurant::all();
         $restaurants = Restaurant::doSearch($name, $prefecture_id, $category_id);
-        $param = ['user' => $user,'prefectures' => $prefectures,'categories' => $categories];
-        return view('index', ['restaurants' => $restaurants,'name' => $name, 'prefecture_id' => $prefecture_id, 'category_id' => $category_id, 'id' => $id],$param);
-    }
-
-    public function find()
-    {
-        $restaurants = [];
-        return view('search', ['name' => $name, 'prefecture_id' => $prefecture_id, 'category_id' => $category_id]);
-    }
-
-    public function search(Request $request)
-    {
-        $prefectures = Prefecture::all();
-        $categories = Category::all();
-        $name = $request['name'];
-        $prefecture_id = $request['prefecture_id'];
-        $category_id = $request['category_id'];
-        $restaurants = Restaurant::doSearch($name, $prefecture_id, $category_id);
-        $param = ['prefectures' => $prefectures,'categories' => $categories];
-        return view('search', ['restaurants' => $restaurants,'name' => $name, 'prefecture_id' => $prefecture_id, 'category_id' => $category_id],$param);
+        $param = ['user' => $user,'prefectures' => $prefectures,'categories' => $categories, 'likes' => $likes];
+        return view('index', ['restaurants' => $restaurants,'name' => $name, 'prefecture_id' => $prefecture_id, 'category_id' => $category_id],$param);
     }
 
     public function like(Restaurant $restaurant, Request $request){

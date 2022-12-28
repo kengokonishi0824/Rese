@@ -57,6 +57,14 @@ class ReseController extends Controller
         return view('thanks');
     }
 
+    public function mypage(Request $request)
+    {
+        $user = Auth::user();
+        $reservations = Reservation::all()->where('user_id',auth()->user()->id)->sortBy("reservation_date");
+        $likes = Like::all()->where('user_id',auth()->user()->id)->sortBy("restaurant_id");
+        return view('mypage',['user' => $user, 'reservations' => $reservations, 'likes' => $likes]) ;
+    }
+
     public function admin()
     {
         $restaurants = Restaurant::all();

@@ -192,3 +192,26 @@ body {
   margin-top: 0;
   margin-bottom: 0;
 }
+
+.reservation-all{
+  background-color: #305DFF;
+  border: none;
+  margin-top: 10px;
+}
+
+.mypage {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mypage-left {
+  width: 50%;
+  padding-left: 5%;
+  padding-right: 2.5%;
+}
+
+.mypage-right {
+  width: 50%;
+  padding-left: 2.5%;
+  padding-right: 5%;
+}

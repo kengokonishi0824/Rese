@@ -205,13 +205,37 @@ body {
 }
 
 .mypage-left {
-  width: 50%;
+  width: 35%;
   padding-left: 5%;
   padding-right: 2.5%;
 }
 
 .mypage-right {
-  width: 50%;
+  width: 65%;
   padding-left: 2.5%;
   padding-right: 5%;
+}
+
+.mypage-name{
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.mypage-subtitle{
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.mypage-kike-all{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.mypage-reservation{
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px 0 black;
+  width: 200px;
+  margin-right: 10px;
+  margin-bottom: 20px;
 }

@@ -10,13 +10,32 @@
   <div class="mypage-left">
     <p class="mypage-name">Rese</p>
     <p class="mypage-subtitle">予約状況</p>
+    <?php $number=1;?>
     @foreach ($reservations as $reservation)
     <div class="reservation-all">
-      <p class="confirm-content">{{$reservation->restaurant->name}}</p>
-      <p class="confirm-content">{{$reservation->reservation_date}}</p>
-      <p class="confirm-content">{{$reservation->reservation_time}}</p>
-      <p class="confirm-content">{{$reservation->number_people}}人</p>
+      <p class="confirm-content">予約{{$number}}　　　
+        <img src="{{asset('/picture/Multiply Circle.png')}}" alt="" class=btn-delete>
+      </p>
+      <table>
+        <tr>
+          <td width="100" class="confirm-content">shop</td>
+          <td class="confirm-content">{{$reservation->restaurant->name}}</td>
+        </tr>
+        <tr>
+          <td width="100" class="confirm-content">Date</td>
+          <td class="confirm-content">{{$reservation->reservation_date}}</td>
+        </tr>
+        <tr>
+          <td width="100" class="confirm-content">Time</td>
+          <td class="confirm-content">{{substr($reservation->reservation_time,0,5)}}</td>
+        </tr>
+        <tr>
+          <td width="100" class="confirm-content">Number</td>
+          <td class="confirm-content">{{$reservation->number_people}}人</td>
+        </tr>
+      </table>
     </div>
+    <?php $number++;?>
     @endforeach
   </div>
 
@@ -28,9 +47,9 @@
     <a href="/register">登録</a>）</p>
     @endif
     <p class="mypage-subtitle">お気に入り店舗</p>
-    <div class="mypage-kike-all">
+    <div class="mypage-like-all">
       @foreach ($likes as $like)
-      <div class="mypage-reservation">
+      <div class="mypage-likes">
         <img src="{{$like->restaurant->picture}}" class="picture">
         <p class="restaurant_name">{{$like->restaurant->name}}</p>
         <p class="restaurant_tag">#{{$like->restaurant->prefecture->prefecture}} #{{$like->restaurant->category->category}}</p>

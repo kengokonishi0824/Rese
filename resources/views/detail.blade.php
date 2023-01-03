@@ -30,7 +30,7 @@
     <div class="reservation-box">
       <p class="yoyaku">予約</p>
       <div class=reservation-form>
-        <form action="/reservation" method="POST">
+        <form action="/done" method="POST">
           @csrf
           <input type="hidden" name="user_id" value="{{$user->id}}">
           <input type="hidden" name="restaurant_id" value="{{$restaurants->id}}">

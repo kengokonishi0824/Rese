@@ -262,3 +262,33 @@ body {
   margin-right: 10px;
   margin-bottom: 20px;
 }
+
+.tanks-box{
+  background-color: white;
+  width: 500px;
+  height: 250px;
+  margin: 0 auto;
+  margin-top: 200px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px 0 black;
+}
+
+.thanks-word{
+  font-size: 25px;
+  text-align: center;
+  padding-top: 70px;
+}
+
+.btn-back-thanks{
+  border: #305DFF;
+  border-radius: 8px;
+  background-color: #305DFF;
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+}
+
+.btn-back-paragraph{
+  text-align: center;
+  margin-top: 50px;
+}

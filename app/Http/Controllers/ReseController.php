@@ -54,7 +54,7 @@ class ReseController extends Controller
     {
         $form = $request->all();
         Reservation::create($form);
-        return view('thanks');
+        return view('done');
     }
 
     public function mypage(Request $request)

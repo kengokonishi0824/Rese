@@ -171,6 +171,17 @@ body {
   padding-right: 15px;
 }
 
+.reservation-number {
+  margin: 0px;
+  color: #EEEEEE;
+  font-size: 20px;
+}
+
+.timer{
+  width: 30px;
+  height: 30px;
+}
+
 .confirm-content{
   margin: 0px;
   color: #EEEEEE;
@@ -191,4 +202,63 @@ body {
 .reservation{
   margin-top: 0;
   margin-bottom: 0;
+}
+
+.mypage-reservation-head{
+  display: flex;
+  justify-content: space-between;
+}
+
+.reservation-all{
+  background-color: #305DFF;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px 0 black;
+  margin-top: 10px;
+  padding: 20px;
+}
+.btn-delete{
+  width: 30px;
+  height: 30px;
+  transition: 0.4s;
+}
+
+.mypage {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mypage-left {
+  width: 35%;
+  padding-left: 5%;
+  padding-right: 2.5%;
+}
+
+.mypage-right {
+  width: 65%;
+  padding-left: 2.5%;
+}
+
+.mypage-name{
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.mypage-subtitle{
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.mypage-like-all{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.mypage-likes{
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px 0 black;
+  width: 200px;
+  margin-right: 10px;
+  margin-bottom: 20px;
 }

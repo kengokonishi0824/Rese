@@ -57,6 +57,20 @@ class ReseController extends Controller
         return view('thanks');
     }
 
+    public function mypage(Request $request)
+    {
+        $user = Auth::user();
+        $reservations = Reservation::all()->where('user_id',auth()->user()->id)->sortBy("reservation_date");
+        $likes = Like::all()->where('user_id',auth()->user()->id)->sortBy("restaurant_id");
+        return view('mypage',['user' => $user, 'reservations' => $reservations, 'likes' => $likes]) ;
+    }
+
+    public function remove(Request $request)
+    {
+        Reservation::find($request->id)->delete();
+        return redirect('mypage');
+    }
+
     public function admin()
     {
         $restaurants = Restaurant::all();
@@ -87,15 +101,7 @@ class ReseController extends Controller
         return redirect('admin');
     }
 
-    public function delete(Request $request)
-    {
-        $todo = Todo::find($request->id);
-        return view('delete', ['form' => $todo]);
-    }
-    public function remove(Request $request)
-    {
-        Todo::find($request->id)->delete();
-        return redirect('home');
-    }
+    
+
 }
 

@@ -13,24 +13,30 @@
     <?php $number=1;?>
     @foreach ($reservations as $reservation)
     <div class="reservation-all">
-      <p class="confirm-content">予約{{$number}}　　　
-        <img src="{{asset('/picture/Multiply Circle.png')}}" alt="" class=btn-delete>
-      </p>
+      <div class="mypage-reservation-head">
+        <p class="reservation-number">
+          <img src="{{asset('/picture/access_time.png')}}" class="timer">予約{{$number}}　　　</p>
+        <form action="/remove" method="POST">
+          @csrf
+          <input type="hidden" name="id" value="{{$reservation->id}}">
+          <input type="image" src="{{asset('/picture/xmark_circle.png')}}" alt="削除" class="btn-delete" >
+        </form>
+      </div>
       <table>
         <tr>
-          <td width="100" class="confirm-content">shop</td>
+          <td width="100" height="45" class="confirm-content">shop</td>
           <td class="confirm-content">{{$reservation->restaurant->name}}</td>
         </tr>
         <tr>
-          <td width="100" class="confirm-content">Date</td>
+          <td width="100" height="45" class="confirm-content">Date</td>
           <td class="confirm-content">{{$reservation->reservation_date}}</td>
         </tr>
         <tr>
-          <td width="100" class="confirm-content">Time</td>
+          <td width="100" height="45" class="confirm-content">Time</td>
           <td class="confirm-content">{{substr($reservation->reservation_time,0,5)}}</td>
         </tr>
         <tr>
-          <td width="100" class="confirm-content">Number</td>
+          <td width="100" height="45" class="confirm-content">Number</td>
           <td class="confirm-content">{{$reservation->number_people}}人</td>
         </tr>
       </table>

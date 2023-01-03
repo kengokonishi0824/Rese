@@ -20,6 +20,7 @@ Route::get('/detail/{id}', [ReseController::class, 'detail'])->name('detail');
 Route::post('/reservation', [ReseController::class, 'reservation']);
 Route::get('/reservation', [ReseController::class, 'reservation']);
 Route::get('/mypage', [ReseController::class, 'mypage']);
+Route::post('/remove',[Resecontroller::class, 'remove'])->name('remove');
 
 
 

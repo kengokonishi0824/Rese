@@ -8,7 +8,7 @@
 
 <div class="tanks-box">
   <P class="thanks-word">ご予約ありがとうございます</p>
-  <p class="btn-back-paragraph"><a class="btn-back" href=/home>戻る</a></p>
+  <p class="btn-back-paragraph"><a class="btn-back-thanks" href=/home>戻る</a></p>
 </div>
 
 

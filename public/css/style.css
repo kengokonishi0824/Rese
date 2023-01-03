@@ -132,14 +132,133 @@ body {
   padding-right: 5%;
 }
 
+.reservation-form-box{
+  width: 100%;
+  height: 35px;
+  border-radius: 5px;
+  border: none;
+}
+
+.btn-reservation{
+  display: inline-block;
+  width: 100%;
+  height: 40px;
+  background-color: rgb(5,56,255);
+  border: 1px solid rgb(5, 56, 255);
+  cursor: pointer;
+  color: #EEEEEE;
+}
+
 .reservation-box{
-  border: #315DFF solid 1px;
   background-color: #305DFF;
-  height: 100%;
+  height: 90%;
+
+}
+
+.reservation-form{
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.confirm-box{
+  margin-left: 15px;
+  margin-right: 15px;
+  background-color: #4D7FFF;
+}
+
+.reservsation-confirm{
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.reservation-number {
+  margin: 0px;
+  color: #EEEEEE;
+  font-size: 20px;
+}
+
+.timer{
+  width: 30px;
+  height: 30px;
+}
+
+.confirm-content{
+  margin: 0px;
+  color: #EEEEEE;
+}
+
+.content-confirm{
+  width: 50px;
 }
 
 .yoyaku{
   color: #EEEEEE;
+  font-weight: bold;
   font-size: 25px;
   padding-left: 15px;
+  padding-top: 20px;
+}
+
+.reservation{
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.mypage-reservation-head{
+  display: flex;
+  justify-content: space-between;
+}
+
+.reservation-all{
+  background-color: #305DFF;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px 0 black;
+  margin-top: 10px;
+  padding: 20px;
+}
+.btn-delete{
+  width: 30px;
+  height: 30px;
+  transition: 0.4s;
+}
+
+.mypage {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mypage-left {
+  width: 35%;
+  padding-left: 5%;
+  padding-right: 2.5%;
+}
+
+.mypage-right {
+  width: 65%;
+  padding-left: 2.5%;
+}
+
+.mypage-name{
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.mypage-subtitle{
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.mypage-like-all{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.mypage-likes{
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px 0 black;
+  width: 200px;
+  margin-right: 10px;
+  margin-bottom: 20px;
 }

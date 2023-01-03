@@ -6,7 +6,9 @@ use App\Models\Restaurant;
 use App\Models\Prefecture;
 use App\Models\Category;
 use App\Models\Like;
+use App\Models\Reservation;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\ReservationRequest;
 use Illuminate\Http\Request;
 
 
@@ -46,8 +48,29 @@ class ReseController extends Controller
         $user = Auth::user();
         $restaurants = Restaurant::all()->find($id);
         return view('detail',['user' =>$user,'restaurants' => $restaurants]);
-
     }
+
+    public function reservation(Request $request)
+    {
+        $form = $request->all();
+        Reservation::create($form);
+        return view('thanks');
+    }
+
+    public function mypage(Request $request)
+    {
+        $user = Auth::user();
+        $reservations = Reservation::all()->where('user_id',auth()->user()->id)->sortBy("reservation_date");
+        $likes = Like::all()->where('user_id',auth()->user()->id)->sortBy("restaurant_id");
+        return view('mypage',['user' => $user, 'reservations' => $reservations, 'likes' => $likes]) ;
+    }
+
+    public function remove(Request $request)
+    {
+        Reservation::find($request->id)->delete();
+        return redirect('mypage');
+    }
+
     public function admin()
     {
         $restaurants = Restaurant::all();
@@ -78,15 +101,7 @@ class ReseController extends Controller
         return redirect('admin');
     }
 
-    public function delete(Request $request)
-    {
-        $todo = Todo::find($request->id);
-        return view('delete', ['form' => $todo]);
-    }
-    public function remove(Request $request)
-    {
-        Todo::find($request->id)->delete();
-        return redirect('home');
-    }
+    
+
 }
 

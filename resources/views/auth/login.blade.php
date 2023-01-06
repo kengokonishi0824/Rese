@@ -33,9 +33,11 @@
                                 name="password"
                                 required autocomplete="current-password" />
             </div>
+            <div class="btn-breeze">
                 <x-button class="ml-3">
                     {{ __('ログイン') }}
                 </x-button>
+            </div>
             </div>
         </form>
     </div>    

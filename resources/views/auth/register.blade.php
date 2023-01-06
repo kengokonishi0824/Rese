@@ -6,43 +6,49 @@
     <title>register</title>
 </head>
 
+    @if (Auth::check())
+    <a class="btn-rese" href="/menu1">■</a><span class="word-rese">Rese</span>
+    @else
+    <a class="btn-rese" href="/menu2">■</a><span class="word-rese">Rese</span>
+    @endif
+
+
+    <div class="page-breeze">
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
-            <!-- Name -->
-            <div>
-                <x-label for="name" :value="__('Name')" />
+            <div class="header-breeze">
+                    Registration
+            </div>
 
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+            <!-- Name -->
+            <div class="breeze-form">
+                <img src="{{asset('/picture/person_alt.png')}}" alt="" class="breeze-icon">
+                <x-input  placeholder="Username" id="name" class="breeze-form-box" type="text" name="name" :value="old('name')" required autofocus />
             </div>
 
             <!-- Email Address -->
-            <div class="mt-4">
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+            <div class="breeze-form">
+                <img src="{{asset('/picture/mail.png')}}" alt="" class="breeze-icon">
+                <x-input  placeholder="Email" id="email" class="breeze-form-box" type="email" name="email" :value="old('email')" required />
             </div>
 
             <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class="block mt-1 w-full"
+            <div class="breeze-form">
+                <img src="{{asset('/picture/lock.png')}}" alt="" class="breeze-icon">
+                <x-input  placeholder="Password" id="password" class="breeze-form-box"
                                 type="password"
                                 name="password"
                                 required autocomplete="new-password" />
             </div>
-            
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
-
-                <x-button class="ml-4">
-                    {{ __('Register') }}
+            <div class="btn-breeze">
+                <x-button class="ml-3">
+                    {{ __('登録') }}
                 </x-button>
             </div>
+            </div>
         </form>
+    </div>

@@ -366,12 +366,15 @@ body {
 .breeze-form{
   text-align: center;
   width: 400px;
-  margin: 20px auto;
+  margin: 0 auto;
+}
 
+.btn-breeze {
+  text-align: right;
 }
 
 .ml-3{
-  margin-left:300px;
+  margin-right: 20px;
   margin-top: 10px;
   margin-bottom: 20px;
   background-color: #305DFF;
@@ -396,3 +399,4 @@ body {
   padding: 5px 10px;
   width: 80%;
 }
+

@@ -13,7 +13,10 @@
     <a class="menu-link" href=/home>Home</a>
   </p>
   <p>
-    <a class="menu-link" href=/logout>Logout</a>
+    <form method="post" action="/logout">
+    @csrf
+    <input class="menu-link" type="submit" value="Logout">
+    </form>
   </p>
   <p>
     <a class="menu-link" href=/mypage>Mypage</a>

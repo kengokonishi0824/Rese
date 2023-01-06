@@ -7,8 +7,12 @@
 </head>
 
 <div class="mypage">
+  @if (Auth::check())
+  <a class="btn-rese" href="/menu1">■</a><span class="word-rese">Rese</span>
+  @else
+  <a class="btn-rese" href="/menu2">■</a><span class="word-rese">Rese</span>
+  @endif
   <div class="mypage-left">
-    <p class="mypage-name">Rese</p>
     <p class="mypage-subtitle">予約状況</p>
     <?php $number=1;?>
     @foreach ($reservations as $reservation)

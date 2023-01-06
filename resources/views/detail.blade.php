@@ -8,14 +8,13 @@
 </head>
 
 @if (Auth::check())
-  <p>ログイン中ユーザー: {{$user->id}}</p>
+  <a class="btn-rese" href="/menu1">■</a><span class="word-rese">Rese</span>
 @else
-  <p>ログインなし。（<a href="/login">ログイン</a>｜
-  <a href="/register">登録</a>）</p>
+  <a class="btn-rese" href="/menu2">■</a><span class="word-rese">Rese</span>
 @endif
+
 <div class="detail-page">
   <div class="detail-left">
-    <p>detail画面</p>
     <div class="detail-top">
       <p class="btn-back">
         <a class="detail-back" href=/home><</a>
@@ -27,6 +26,7 @@
     <p class="">{{$restaurants->overview}}</p>
   </div>
   <div class="detail-right">
+    @if (Auth::check())
     <div class="reservation-box">
       <p class="yoyaku">予約</p>
       <div class=reservation-form>
@@ -61,6 +61,10 @@
         <input type="submit" value="予約する" class="btn-reservation">
       </div>
         </form>
+    @else
+    <div class="reservation-box">
+      <p class="yoyaku">予約するにはログインが必要になります</p>
+    @endif
   </div>
 </div>
 

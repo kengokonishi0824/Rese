@@ -1,6 +1,7 @@
 body {
   background-color: #EEEEEE;
 }
+
 .search-box{
   background-color: white;
   border-radius: 5px;
@@ -291,4 +292,53 @@ body {
 .btn-back-paragraph{
   text-align: center;
   margin-top: 50px;
+}
+
+.menu-box{
+  margin-top: 200px;
+  text-align: center;
+}
+
+.menu-link{
+  margin: 0 auto;
+  font-size: 30px;
+  color: #305DFF;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-close{
+  background-color: #305DFF;
+  text-align: center;
+  color: white;
+  font-size: 30px;
+  text-decoration: none;
+  display: inline-block;
+  position: rerative;
+  width: 50px;
+  height: 40px;
+  margin-left: 50px;
+  margin-top: 30px;
+  padding-bottom: 10px;
+  border-radius: 7px;
+  box-shadow: 1px 1px 5px 0 black;
+}
+
+.btn-rese{
+  text-align: center;
+  color: #305DFF;
+  font-size: 30px;
+  text-decoration: none;
+  display: inline-block;
+  position: rerative;
+  width: 50px;
+  height: 40px;
+  margin-left: 50px;
+  margin-top: 30px;
+}
+
+.word-rese{
+  font-size: 30px;
+  color: #305DFF;
 }

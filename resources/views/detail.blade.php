@@ -35,13 +35,13 @@
           <input type="hidden" name="user_id" value="{{$user->id}}">
           <input type="hidden" name="restaurant_id" value="{{$restaurants->id}}">
           <p>
-            <input type="date" name="reservation_date" class="reservation-form-box">
+            <input type="date" name="reservation_date" class="reservation-form-box" id="reservation-form-date">
           </p>
           <p>
-            <input type="time" name="reservation_time" class="reservation-form-box">
+            <input type="time" name="reservation_time" class="reservation-form-box" id="reservation-form-time">
           </p>
           <p>
-            <select name="number_people" class="reservation-form-box">
+            <select name="number_people" class="reservation-form-box" id="reservation-form-number">
               <option value="1">1人</option>
               <option value="2">2人</option>
               <option value="3">3人</option>
@@ -51,10 +51,24 @@
           </p>
           </div>
           <div class="confirm-box">
-            <p class="confirm-content">Shop　{{$restaurants->name}}</p>
-            <p class="confirm-content">Date　{{$restaurants->name}}</p>
-            <p class="confirm-content">Time　{{$restaurants->name}}</p>
-            <p class="confirm-content">Number　{{$restaurants->name}}</p>
+            <table>
+              <tr>
+                <td width="100" height="45" class="confirm-content" id="confirm-name">shop</td>
+                <td class="confirm-content">{{$restaurants->name}}</td>
+              </tr>
+              <tr>
+                <td width="100" height="45" class="confirm-content">Date</td>
+                <td class="confirm-content" id="confirmdate"></td>
+              </tr>
+              <tr>
+                <td width="100" height="45" class="confirm-content">Time</td>
+                <td class="confirm-content" id="confirmtime"></td>
+              </tr>
+              <tr>
+                <td width="100" height="45" class="confirm-content" >Number</td>
+                <td class="confirm-content"><span id="confirmnumber">1</span>人</td>
+              </tr>
+            </table>
           </div>
       </div>
       <div class="reservation">
@@ -68,5 +82,4 @@
   </div>
 </div>
 
-
-
+<script src="{{ asset('/js/script.js') }}"></script>

@@ -21,7 +21,8 @@ Route::post('/done', [ReseController::class, 'reservation']);
 Route::get('/done', [ReseController::class, 'reservation']);
 Route::get('/mypage', [ReseController::class, 'mypage']);
 Route::post('/remove',[Resecontroller::class, 'remove'])->name('remove');
-
+Route::get('/menu1', [ReseController::class, 'menu1']);
+Route::get('/menu2', [ReseController::class, 'menu2']);
 
 
 Route::get('/admin', [ReseController::class, 'admin']);

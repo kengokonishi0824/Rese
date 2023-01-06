@@ -71,6 +71,16 @@ class ReseController extends Controller
         return redirect('mypage');
     }
 
+    public function menu1(Request $request)
+    {
+        return view('menu1');
+    }
+
+    public function menu2(Request $request)
+    {
+        return view('menu2');
+    }
+
     public function admin()
     {
         $restaurants = Restaurant::all();

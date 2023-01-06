@@ -6,7 +6,9 @@
   <title>menu1</title>
 </head>
 
-<div class=menu-box>
+<a class="btn-close" href=/ >×</a>
+
+<div class="menu-box">
   <p>
     <a class="menu-link" href=/home>Home</a>
   </p>

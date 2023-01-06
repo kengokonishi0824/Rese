@@ -342,3 +342,61 @@ body {
   font-size: 30px;
   color: #305DFF;
 }
+
+.page-breeze{
+  width: 400px;
+  margin: 100px auto;
+  border-radius: 7px;
+  box-shadow: 1px 1px 5px 0 black;
+  background-color: white;
+}
+
+.header-breeze{
+  background-color: #305DFF;
+  color: white;
+  font-size: 20px;
+  margin: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+}
+
+.breeze-form{
+  text-align: center;
+  width: 400px;
+  margin: 0 auto;
+}
+
+.btn-breeze {
+  text-align: right;
+}
+
+.ml-3{
+  margin-right: 20px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  background-color: #305DFF;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 15px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.breeze-icon{
+  height: 30px;
+  margin-top: 10px;
+  
+}
+
+.breeze-form-box{
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #999;
+  padding: 5px 10px;
+  width: 80%;
+}
+

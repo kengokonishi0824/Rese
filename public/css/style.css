@@ -6,31 +6,52 @@ body {
   background-color: white;
   border-radius: 5px;
   box-shadow: 1px 1px 5px 0 black;
-  width: 40%;
+  width: 500px;
   height: 30px;
-  margin: 0 0 0 auto ;
+  margin-left: auto;
   margin-right: 5%;
   margin-bottom: 20px;
-  align-content: right;
+  display: flex;
+  justify-content: start;
+}
+
+.p-select-tag{
+  margin: 0;
 }
 
 .select-tag {
+  margin-top: 2.5px;
+  margin-left: 1px;
+  height: 25px;
+  border: 0;
+  outline: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.p-search-form{
   margin: 0;
+  width: 300px;
+}
+
+.search-form{
+  margin-top: 2.5px;
+  margin-left: 1px;
+  height: 25px;
+  width: 100%;
   border: 0;
   outline: none;
   padding: 0;
 }
 
-.search-form{
-  margin: 0;
-  border: 0;
-  outline: none;
-  padding: 0;
+.btn-search{
+  height: 30px;
 }
 
 .restaurant_all{
   display: flex;
   flex-wrap: wrap;
+  justify-content: end;
   padding: 0 5% ;
 }
 
@@ -38,8 +59,8 @@ body {
   background-color: white;
   border-radius: 5px;
   box-shadow: 1px 1px 5px 0 black;
-  width: 23%;
-  margin-right: 10px;
+  width: 200px;
+  margin-left: 10px;
   margin-bottom: 20px;
 }
 
@@ -174,6 +195,7 @@ body {
 
 .reservation-number {
   margin: 0px;
+  margin-left: 10px;
   color: #EEEEEE;
   font-size: 20px;
 }
@@ -205,7 +227,7 @@ body {
   margin-bottom: 0;
 }
 
-.mypage-reservation-head{
+.mypage-reservation-header{
   display: flex;
   justify-content: space-between;
 }
@@ -218,6 +240,12 @@ body {
   margin-top: 10px;
   padding: 20px;
 }
+.reservation-header{
+  margin: 0;
+  display: flex;
+  justify-content: start;
+}
+
 .btn-delete{
   width: 30px;
   height: 30px;

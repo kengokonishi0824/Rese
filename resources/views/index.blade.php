@@ -12,22 +12,30 @@
   <a class="btn-rese" href="/menu2">■</a><span class="word-rese">Rese</span>
 @endif
 
-<div class="search-box">
-  <form action="/home" method="GET">
-  <select name="prefecture_id" class="select-tag">
+<div>
+  <form action="/home" method="GET" class="search-box">
+    <p class="p-select-tag"><select name="prefecture_id" class="select-tag">
             <option value="0">All area</option>
       @foreach ($prefectures as $prefecture)
             <option value="{{$prefecture->id}}">{{$prefecture->prefecture}}</option>
       @endforeach
     </select>
-  <select name="category_id" class="select-tag">
+    </p>
+    <p class="p-select-tag">
+    <select name="category_id" class="select-tag">
             <option value="0">All genre</option>
       @foreach ($categories as $category)
             <option value="{{$category->id}}">{{$category->category}}</option>
       @endforeach
     </select>
-  <input type="text" name="name" placeholder="Search..." class="search-form">
-    </form>
+    </p>
+    <p class="p-select-tag">
+    <input type="image" src="{{asset('/picture/search.png')}}" alt="" class="btn-search" >
+    </p>
+    <p class="p-search-form">
+    <input type="text" name="name" placeholder="Search..." class="search-form">
+    </p>
+  </form>
 </div>
 
 <div class="restaurant_all">

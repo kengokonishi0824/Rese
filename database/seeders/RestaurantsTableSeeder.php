@@ -77,15 +77,6 @@ class RestaurantsTableSeeder extends Seeder
     ];
     Restaurant::create($param);
 
-    $param = [
-            'name' => 'JJ',
-            'prefecture_id' => Prefecture::all()->where('prefecture','大阪')->first()->id,
-            'category_id' => Category::all()->where('category','イタリアン')->first()->id,
-            'overview' => 'イタリア製ピザ窯芳ばしく焼き上げた極薄のミラノピッツァや厳選されたワインをお楽しみいただけます。女子会や男子会、記念日やお誕生日会にもオススメです。',
-            'picture' =>'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/italian.jpg'
-
-    ];
-    Restaurant::create($param);
 $param = [
             'name' => 'JJ',
             'prefecture_id' => Prefecture::all()->where('prefecture','大阪')->first()->id,

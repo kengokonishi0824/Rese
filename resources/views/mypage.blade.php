@@ -17,10 +17,14 @@
     <?php $number=1;?>
     @foreach ($reservations as $reservation)
     <div class="reservation-all">
-      <div class="mypage-reservation-head">
-        <p class="reservation-number">
-          <img src="{{asset('/picture/access_time.png')}}" class="timer">予約{{$number}}　　　</p>
-        <form action="/remove" method="POST">
+      <div class="mypage-reservation-header">
+        <div class="reservation-header">
+          <img src="{{asset('/picture/access_time.png')}}" class="timer">
+          <p class="reservation-number">
+            予約{{$number}}
+          </p>
+        </div>
+        <form action="/remove" method="POST" class="reservation-number">
           @csrf
           <input type="hidden" name="id" value="{{$reservation->id}}">
           <input type="image" src="{{asset('/picture/xmark_circle.png')}}" alt="削除" class="btn-delete" >

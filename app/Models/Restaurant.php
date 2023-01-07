@@ -25,10 +25,10 @@ class Restaurant extends Model
             $query->where('name', 'like binary', "%{$name}%");
         }
         if (!empty($prefecture_id)) {
-            $query->where('prefecture_id','like binary',  "%{$prefecture_id}%");
+            $query->where('prefecture_id', "{$prefecture_id}");
         }
         if (!empty($category_id)) {
-            $query->where('category_id','like binary',  "%{$category_id}%");
+            $query->where('category_id', "{$category_id}");
         }
         $results = $query->get();
         return $results;

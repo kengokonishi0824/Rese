@@ -7,6 +7,7 @@ use App\Models\Prefecture;
 use App\Models\Category;
 use App\Models\Like;
 use App\Models\Reservation;
+use App\Models\Review;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ReservationRequest;
 use Illuminate\Http\Request;

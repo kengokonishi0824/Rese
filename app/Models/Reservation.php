@@ -18,4 +18,8 @@ class Reservation extends Model
     public function user(){
         return $this->belongsTo('App\Models\User');
     }
+
+    public function review(){
+        return $this->Hasmany('App\Models\Review');
+    }
 }

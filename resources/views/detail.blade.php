@@ -70,10 +70,11 @@
               </tr>
             </table>
           </div>
+          <div class="reservation">
+            <input type="submit" value="予約する" class="btn-reservation">
+          </div>
       </div>
-      <div class="reservation">
-        <input type="submit" value="予約する" class="btn-reservation">
-      </div>
+      
         </form>
     @else
     <div class="reservation-box">

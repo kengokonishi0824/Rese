@@ -48,12 +48,11 @@
           <td class="confirm-content">{{$reservation->number_people}}人</td>
         </tr>
       </table>
-      <p>
-        <a class="btn_detail" href="/mypage/change/{{$reservation->id}}">
-          予約変更
+      <div class="mypage-change">
+        <a class="btn-change" href="/mypage/change/{{$reservation->id}}">
+          予約内容を変更する
         </a>
-      </p>
-
+      </div>
     </div>
     <?php $number++;?>
     @endforeach

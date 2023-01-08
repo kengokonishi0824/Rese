@@ -30,10 +30,9 @@
       <p class="yoyaku">予約内容変更
       </p>
       <div class=reservation-form>
-        <form action="/done" method="POST">
+        <form action="/change_reservation" method="POST">
           @csrf
-          <input type="hidden" name="user_id" value="{{$user->id}}">
-          <input type="hidden" name="restaurant_id" value="{{$reservations->id}}">
+          <input type="hidden" name="id" value="{{$reservations->id}}">
           <p>
             <input type="date" name="reservation_date" class="reservation-form-box" id="reservation-form-date" value="{{$reservations->reservation_date}}">
           </p>
@@ -71,9 +70,10 @@
               </tr>
             </table>
           </div>
-      </div>
-      <div class="reservation">
-        <input type="submit" value="予約内容を変更する" class="btn-reservation">
+          <div class="reservation">
+            <input type="submit" value="予約内容を変更する" class="btn-reservation">
+          </div>
+
       </div>
         </form>
     @else

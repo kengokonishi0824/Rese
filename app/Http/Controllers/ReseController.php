@@ -65,6 +65,20 @@ class ReseController extends Controller
         return view('mypage',['user' => $user, 'reservations' => $reservations, 'likes' => $likes]) ;
     }
 
+    public function mypage_change($id)
+    {
+        $user = Auth::user();
+        $reservations = Reservation::all()->find($id);
+        return view('change',['user' =>$user,'reservations' => $reservations]);
+    }
+
+    public function change_reservation(Request $request)
+    {
+        $form = $request->all();
+        Reservation::find($request->id)->update($form);
+        return redirect('mypage');
+    }
+
     public function remove(Request $request)
     {
         Reservation::find($request->id)->delete();

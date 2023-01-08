@@ -185,7 +185,8 @@ body {
 .btn-reservation{
   display: inline-block;
   width: 100%;
-  height: 40px;
+  font-size: 15px;
+  padding: 15px;
   background-color: rgb(5,56,255);
   border: 1px solid rgb(5, 56, 255);
   cursor: pointer;
@@ -194,8 +195,8 @@ body {
 
 .reservation-box{
   background-color: #305DFF;
-  height: 90%;
-
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px 0 black;
 }
 
 .reservation-form{
@@ -244,8 +245,9 @@ body {
 }
 
 .reservation{
-  margin-top: 0;
-  margin-bottom: 0;
+  margin-top: 20%;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .mypage-reservation-header{
@@ -260,7 +262,9 @@ body {
   box-shadow: 1px 1px 5px 0 black;
   margin-top: 10px;
   padding: 20px;
+  padding-bottom: 0;
 }
+
 .reservation-header{
   margin: 0;
   display: flex;
@@ -282,6 +286,25 @@ body {
   width: 35%;
   padding-left: 5%;
   padding-right: 2.5%;
+}
+
+.btn-change{
+  display: inline-block;
+  width: 100%;
+  cursor: pointer;
+  color: #EEEEEE;
+  text-decoration: none;
+  text-align: center;
+  font-size: 15px;
+}
+
+.mypage-change{
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: #4D7FFF;
+  border: none;
+  padding: 10px;
+  margin: 0 -20px;
 }
 
 .mypage-right {

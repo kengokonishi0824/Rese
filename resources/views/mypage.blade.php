@@ -21,7 +21,7 @@
         <div class="reservation-header">
           <img src="{{asset('/picture/access_time.png')}}" class="timer">
           <p class="reservation-number">
-            予約{{$number}}
+            予約{{$number}} 
           </p>
         </div>
         <form action="/remove" method="POST" class="reservation-number">
@@ -91,6 +91,11 @@
   </div>
 </div>
 
+@foreach($reservations as $reservation)
+{{$reservation -> reservation_date}}
+{{$now}}
+
+@endforeach
 
 
 

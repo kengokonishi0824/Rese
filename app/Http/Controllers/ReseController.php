@@ -11,6 +11,7 @@ use App\Models\Review;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ReservationRequest;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 
 class ReseController extends Controller
@@ -63,7 +64,8 @@ class ReseController extends Controller
         $user = Auth::user();
         $reservations = Reservation::all()->where('user_id',auth()->user()->id)->sortBy("reservation_date");
         $likes = Like::all()->where('user_id',auth()->user()->id)->sortBy("restaurant_id");
-        return view('mypage',['user' => $user, 'reservations' => $reservations, 'likes' => $likes]) ;
+        $now = Carbon::now()->format('Y-m-d');
+        return view('mypage',['user' => $user, 'reservations' => $reservations, 'likes' => $likes, 'now' =>$now]) ;
     }
 
     public function mypage_change($id)

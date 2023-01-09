@@ -23,6 +23,8 @@ Route::get('/mypage', [ReseController::class, 'mypage']);
 Route::post('/remove',[Resecontroller::class, 'remove'])->name('remove');
 Route::get('/mypage/change/{id}', [ReseController::class, 'mypage_change'])->name('mypage_change');
 Route::post('/change_reservation',[Resecontroller::class, 'change_reservation'])->name('change_reservation');
+Route::get('/mypage/review/{id}', [ReseController::class, 'mypage_review'])->name('mypage_review');
+Route::post('/review', [ReseController::class, 'review'])->name('review');
 Route::get('/change_reservation',[Resecontroller::class, 'change_reservation'])->name('change_reservation');
 Route::get('/menu1', [ReseController::class, 'menu1']);
 Route::get('/menu2', [ReseController::class, 'menu2']);

@@ -82,6 +82,20 @@ class ReseController extends Controller
         return redirect('mypage');
     }
 
+    public function mypage_review($id)
+    {
+        $user = Auth::user();
+        $reservations = Reservation::all()->find($id);
+        return view('review',['user' =>$user,'reservations' => $reservations]);
+    }
+
+    public function review(Request $request)
+    {
+        $form = $request->all();
+        Review::create($form);
+        return redirect('mypage');
+    }
+
     public function remove(Request $request)
     {
         Reservation::find($request->id)->delete();

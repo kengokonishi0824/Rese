@@ -52,6 +52,9 @@
         <a class="btn-change" href="/mypage/change/{{$reservation->id}}">
           予約内容を変更する
         </a>
+        <a class="btn-change" href="/mypage/review/{{$reservation->id}}">
+          レビューをつける
+        </a>
       </div>
     </div>
     <?php $number++;?>

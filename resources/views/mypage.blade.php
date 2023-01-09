@@ -16,6 +16,52 @@
     <p class="mypage-subtitle">予約状況</p>
     <?php $number=1;?>
     @foreach ($reservations as $reservation)
+    @if($now > $reservation->reservation_date)
+    <div class="reservation-all">
+      <div class="mypage-reservation-header">
+        <div class="reservation-header">
+          <img src="{{asset('/picture/access_time.png')}}" class="timer">
+          <p class="reservation-number">
+            来店済み{{$number}} 
+          </p>
+        </div>
+        <form action="/remove" method="POST" class="reservation-number">
+          @csrf
+          <input type="hidden" name="id" value="{{$reservation->id}}">
+          <input type="image" src="{{asset('/picture/xmark_circle.png')}}" alt="削除" class="btn-delete" >
+        </form>
+      </div>
+      <table>
+        <tr>
+          <td width="100" height="45" class="confirm-content">shop</td>
+          <td class="confirm-content">{{$reservation->restaurant->name}}</td>
+        </tr>
+        <tr>
+          <td width="100" height="45" class="confirm-content">Date</td>
+          <td class="confirm-content">{{$reservation->reservation_date}}</td>
+        </tr>
+        <tr>
+          <td width="100" height="45" class="confirm-content">Time</td>
+          <td class="confirm-content">{{substr($reservation->reservation_time,0,5)}}</td>
+        </tr>
+        <tr>
+          <td width="100" height="45" class="confirm-content">Number</td>
+          <td class="confirm-content">{{$reservation->number_people}}人</td>
+        </tr>
+      </table>
+      <div class="mypage-change">
+        <a class="btn-change" href="/mypage/review/{{$reservation->id}}">
+          レビューをつける
+        </a>
+      </div>
+    </div>
+    <?php $number++;?>
+    @endif
+    @endforeach
+
+        <?php $number=1;?>
+    @foreach ($reservations as $reservation)
+    @if($now < $reservation->reservation_date)
     <div class="reservation-all">
       <div class="mypage-reservation-header">
         <div class="reservation-header">
@@ -52,14 +98,14 @@
         <a class="btn-change" href="/mypage/change/{{$reservation->id}}">
           予約内容を変更する
         </a>
-        <a class="btn-change" href="/mypage/review/{{$reservation->id}}">
-          レビューをつける
-        </a>
       </div>
     </div>
     <?php $number++;?>
+    @endif
     @endforeach
   </div>
+
+
 
   <div class="mypage-right">
     @if (Auth::check())
@@ -94,11 +140,7 @@
   </div>
 </div>
 
-@foreach($reservations as $reservation)
-{{$reservation -> reservation_date}}
-{{$now}}
 
-@endforeach
 
 
 

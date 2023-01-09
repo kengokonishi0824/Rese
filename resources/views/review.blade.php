@@ -54,8 +54,10 @@
           @csrf
           <input type="hidden" name="reservation_id" value="{{$reservations->id}}">
           <input type="hidden" name="user_id" value="{{$user->id}}">
+
           <p>
-            <select name="stars" class="reservation-form-box">
+            <select name="stars" class="review-star-box">
+              <option value="">5段階で評価</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -63,7 +65,7 @@
               <option value="5">5</option>
             </select>
           </p>
-          <input type="text" name="comment" value="{{$reservations->reservation_id}}">
+          <textarea name="comment"  class="review-text-box" value="{{$reservations->reservation_id}}" placeholder="コメントを入力" allign="top"></textarea>
           </div>
           <div class="reservation">
             <input type="submit" value="レビューを投稿する" class="btn-reservation">

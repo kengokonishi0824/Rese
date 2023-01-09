@@ -20,7 +20,7 @@
     <div class="reservation-all">
       <div class="mypage-reservation-header">
         <div class="reservation-header">
-          <img src="{{asset('/picture/access_time.png')}}" class="timer">
+          <img src="{{asset('/picture/star.png')}}" class="timer">
           <p class="reservation-number">
             来店済み{{$number}} 
           </p>

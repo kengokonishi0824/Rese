@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Prefecture extends Model
 {
     use HasFactory;
+
+    protected $fillable = ["prefecture"];
+
     public function restaurant(){
         return $this->hasMany('App\Models\Restaurant');
     }

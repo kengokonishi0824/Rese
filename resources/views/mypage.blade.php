@@ -125,7 +125,7 @@
           <a class="btn_detail" href="/detail/{{$like->restaurant->id}}">
           詳しく見る
           </a>
-          @if($like->where('restaurant_id', $like->restaurant->id)->where('user_id', auth()->user()->id)->first() != null)
+          @if($like->where('restaurant_id', $like->restaurant->id) != null)
           <a href="{{route('unlike', $like->restaurant_id)}}">
             <img src="{{asset('/picture/heart_fill.png')}}" alt="" class=btn-like>
           </a>
@@ -139,8 +139,3 @@
     @endforeach
   </div>
 </div>
-
-
-
-
-

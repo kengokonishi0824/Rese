@@ -20,6 +20,6 @@ class Reservation extends Model
     }
 
     public function review(){
-        return $this->Hasmany('App\Models\Review');
+        return $this->Hasone('App\Models\Review');
     }
 }

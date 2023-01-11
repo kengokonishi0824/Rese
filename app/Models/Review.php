@@ -9,13 +9,15 @@ class Review extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['reservation_id','user_id','','stars','comment'];
+    protected $fillable = ['reservation_id','user_id','stars','comment'];
 
     public function reservation(){
-        return $this->belongsTo('App\Models\Reservation');
+        return $this->hasone('App\Models\Reservation');
     }
 
     public function user(){
         return $this->belongsTo('App\Models\User');
     }
 }
+
+

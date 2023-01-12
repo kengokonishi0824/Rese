@@ -16,7 +16,7 @@
     <p class="mypage-subtitle">予約状況</p>
     <?php $number=1;?>
     @foreach ($reservations as $reservation)
-    @if($now > $reservation->reservation_date)
+    @if($week < $reservation->reservation_date & $reservation->reservation_date < $now & $reservation->stars == null)
     <div class="reservation-all">
       <div class="mypage-reservation-header">
         <div class="reservation-header">
@@ -25,11 +25,6 @@
             来店済み{{$number}} 
           </p>
         </div>
-        <form action="/remove" method="POST" class="reservation-number">
-          @csrf
-          <input type="hidden" name="id" value="{{$reservation->id}}">
-          <input type="image" src="{{asset('/picture/xmark_circle.png')}}" alt="削除" class="btn-delete" >
-        </form>
       </div>
       <table>
         <tr>
@@ -59,7 +54,46 @@
     @endif
     @endforeach
 
-        <?php $number=1;?>
+    @foreach($reservations as $reservation)
+    @if($week < $reservation->reservation_date &$reservation->reservation_date < $now & $reservation->stars !== null)
+    <div class="reservation-all">
+      <div class="mypage-reservation-header">
+        <div class="reservation-header">
+          <img src="{{asset('/picture/star.png')}}" class="timer">
+          <p class="reservation-number">
+            来店済み{{$number}} 
+          </p>
+        </div>
+      </div>
+      <table>
+        <tr>
+          <td width="100" height="45" class="confirm-content">shop</td>
+          <td class="confirm-content">{{$reservation->restaurant->name}}</td>
+        </tr>
+        <tr>
+          <td width="100" height="45" class="confirm-content">Date</td>
+          <td class="confirm-content">{{$reservation->reservation_date}}</td>
+        </tr>
+        <tr>
+          <td width="100" height="45" class="confirm-content">Time</td>
+          <td class="confirm-content">{{substr($reservation->reservation_time,0,5)}}</td>
+        </tr>
+        <tr>
+          <td width="100" height="45" class="confirm-content">Number</td>
+          <td class="confirm-content">{{$reservation->number_people}}人</td>
+        </tr>
+      </table>
+      <div class="mypage-change">
+        <a class="btn-change" href="/mypage/review/{{$reservation->id}}">
+          レビューを編集
+        </a>
+      </div>
+    </div>
+    <?php $number++;?>
+    @endif
+    @endforeach
+
+    <?php $number=1;?>
     @foreach ($reservations as $reservation)
     @if($now < $reservation->reservation_date)
     <div class="reservation-all">

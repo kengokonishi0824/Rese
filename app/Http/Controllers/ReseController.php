@@ -65,7 +65,9 @@ class ReseController extends Controller
         $reservations = Reservation::all()->where('user_id',auth()->user()->id)->sortBy("reservation_date");
         $likes = Like::all()->where('user_id',auth()->user()->id)->sortBy("restaurant_id");
         $now = Carbon::now()->format('Y-m-d');
-        return view('mypage',['user' => $user, 'reservations' => $reservations, 'likes' => $likes, 'now' =>$now]) ;
+        $dt = Carbon::now();
+        $week = $dt->subWeek()->format('Y-m-d');
+        return view('mypage',['user' => $user, 'reservations' => $reservations, 'likes' => $likes, 'now' =>$now ,'week'=>$week]) ;
     }
 
     public function mypage_change($id)

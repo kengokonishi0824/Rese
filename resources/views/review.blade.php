@@ -52,7 +52,7 @@
           <div class=reservation-form>
         <form action="/review" method="POST">
           @csrf
-          <input type="hidden" name="reservation_id" value="{{$reservations->id}}">
+          <input type="hidden" name="id" value="{{$reservations->id}}">
           <input type="hidden" name="user_id" value="{{$user->id}}">
 
           <p>

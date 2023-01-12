@@ -9,7 +9,7 @@ class Reservation extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['restaurant_id','user_id','reservation_date','reservation_time','number_people'];
+    protected $fillable = ['restaurant_id','user_id','reservation_date','reservation_time','number_people', 'stars', 'comment'];
 
     public function restaurant(){
         return $this->belongsTo('App\Models\Restaurant');
@@ -19,7 +19,4 @@ class Reservation extends Model
         return $this->belongsTo('App\Models\User');
     }
 
-    public function review(){
-        return $this->Hasone('App\Models\Review');
-    }
 }

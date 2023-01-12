@@ -93,7 +93,7 @@ class ReseController extends Controller
     public function review(Request $request)
     {
         $form = $request->all();
-        Review::create($form);
+        Reservation::find($request->id)->update($form);
         return redirect('mypage');
     }
 

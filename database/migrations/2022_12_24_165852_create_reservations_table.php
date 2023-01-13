@@ -21,6 +21,8 @@ class CreateReservationsTable extends Migration
             $table->date('reservation_date');
             $table->time('reservation_time');
             $table->unsignedBigInteger('number_people');
+            $table->integer('stars')->nullable();
+            $table->text('comment')->nullable();
         });
     }
 

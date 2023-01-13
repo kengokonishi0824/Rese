@@ -16,12 +16,92 @@
     <p class="mypage-subtitle">予約状況</p>
     <?php $number=1;?>
     @foreach ($reservations as $reservation)
+    @if($week < $reservation->reservation_date & $reservation->reservation_date < $now & $reservation->stars == null)
+    <div class="reservation-all">
+      <div class="mypage-reservation-header">
+        <div class="reservation-header">
+          <img src="{{asset('/picture/star.png')}}" class="timer">
+          <p class="reservation-number">
+            来店済み{{$number}} 
+          </p>
+        </div>
+      </div>
+      <table>
+        <tr>
+          <td width="100" height="45" class="confirm-content">shop</td>
+          <td class="confirm-content">{{$reservation->restaurant->name}}</td>
+        </tr>
+        <tr>
+          <td width="100" height="45" class="confirm-content">Date</td>
+          <td class="confirm-content">{{$reservation->reservation_date}}</td>
+        </tr>
+        <tr>
+          <td width="100" height="45" class="confirm-content">Time</td>
+          <td class="confirm-content">{{substr($reservation->reservation_time,0,5)}}</td>
+        </tr>
+        <tr>
+          <td width="100" height="45" class="confirm-content">Number</td>
+          <td class="confirm-content">{{$reservation->number_people}}人</td>
+        </tr>
+      </table>
+      <div class="mypage-change">
+        <a class="btn-change" href="/mypage/review/{{$reservation->id}}">
+          レビューをつける
+        </a>
+      </div>
+    </div>
+    <?php $number++;?>
+    @endif
+    @endforeach
+
+    @foreach($reservations as $reservation)
+    @if($week < $reservation->reservation_date &$reservation->reservation_date < $now & $reservation->stars !== null)
+    <div class="reservation-all">
+      <div class="mypage-reservation-header">
+        <div class="reservation-header">
+          <img src="{{asset('/picture/star.png')}}" class="timer">
+          <p class="reservation-number">
+            来店済み{{$number}} 
+          </p>
+        </div>
+      </div>
+      <table>
+        <tr>
+          <td width="100" height="45" class="confirm-content">shop</td>
+          <td class="confirm-content">{{$reservation->restaurant->name}}</td>
+        </tr>
+        <tr>
+          <td width="100" height="45" class="confirm-content">Date</td>
+          <td class="confirm-content">{{$reservation->reservation_date}}</td>
+        </tr>
+        <tr>
+          <td width="100" height="45" class="confirm-content">Time</td>
+          <td class="confirm-content">{{substr($reservation->reservation_time,0,5)}}</td>
+        </tr>
+        <tr>
+          <td width="100" height="45" class="confirm-content">Number</td>
+          <td class="confirm-content">{{$reservation->number_people}}人</td>
+        </tr>
+      </table>
+      <div class="mypage-change">
+        <a class="btn-change" href="/mypage/review/{{$reservation->id}}">
+          レビューを編集
+        </a>
+      </div>
+    </div>
+    <?php $number++;?>
+    @endif
+    @endforeach
+
+    <?php $number=1;?>
+    @foreach ($reservations as $reservation)
+    @if($now < $reservation->reservation_date)
     <div class="reservation-all">
       <div class="mypage-reservation-header">
         <div class="reservation-header">
           <img src="{{asset('/picture/access_time.png')}}" class="timer">
           <p class="reservation-number">
-            予約{{$number}}
+            予約{{$number}} 
           </p>
         </div>
         <form action="/remove" method="POST" class="reservation-number">
@@ -55,8 +135,11 @@
       </div>
     </div>
     <?php $number++;?>
+    @endif
     @endforeach
   </div>
+
+
 
   <div class="mypage-right">
     @if (Auth::check())
@@ -76,7 +159,7 @@
           <a class="btn_detail" href="/detail/{{$like->restaurant->id}}">
           詳しく見る
           </a>
-          @if($like->where('restaurant_id', $like->restaurant->id)->where('user_id', auth()->user()->id)->first() != null)
+          @if($like->where('restaurant_id', $like->restaurant->id) != null)
           <a href="{{route('unlike', $like->restaurant_id)}}">
             <img src="{{asset('/picture/heart_fill.png')}}" alt="" class=btn-like>
           </a>
@@ -90,7 +173,3 @@
     @endforeach
   </div>
 </div>
-
-
-
-

@@ -7,9 +7,11 @@ use App\Models\Prefecture;
 use App\Models\Category;
 use App\Models\Like;
 use App\Models\Reservation;
+use App\Models\Review;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ReservationRequest;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 
 class ReseController extends Controller
@@ -20,11 +22,12 @@ class ReseController extends Controller
         $prefectures = Prefecture::all();
         $categories = Category::all();
         $likes = Like::all();
+        $areas = Restaurant::all()->keyBy('prefecture_id');
         $name = $request['name'];
         $prefecture_id = $request['prefecture_id'];
         $category_id= $request['category_id'];
         $restaurants = Restaurant::doSearch($name, $prefecture_id, $category_id);
-        $param = ['user' => $user,'prefectures' => $prefectures,'categories' => $categories, 'likes' => $likes];
+        $param = ['user' => $user,'prefectures' => $prefectures,'categories' => $categories, 'likes' => $likes,'areas'=>$areas];
         return view('index', ['restaurants' => $restaurants,'name' => $name, 'prefecture_id' => $prefecture_id, 'category_id' => $category_id],$param);
     }
 
@@ -62,7 +65,10 @@ class ReseController extends Controller
         $user = Auth::user();
         $reservations = Reservation::all()->where('user_id',auth()->user()->id)->sortBy("reservation_date");
         $likes = Like::all()->where('user_id',auth()->user()->id)->sortBy("restaurant_id");
-        return view('mypage',['user' => $user, 'reservations' => $reservations, 'likes' => $likes]) ;
+        $now = Carbon::now()->format('Y-m-d');
+        $dt = Carbon::now();
+        $week = $dt->subWeek()->format('Y-m-d');
+        return view('mypage',['user' => $user, 'reservations' => $reservations, 'likes' => $likes, 'now' =>$now ,'week'=>$week]) ;
     }
 
     public function mypage_change($id)
@@ -73,6 +79,20 @@ class ReseController extends Controller
     }
 
     public function change_reservation(Request $request)
+    {
+        $form = $request->all();
+        Reservation::find($request->id)->update($form);
+        return redirect('mypage');
+    }
+
+    public function mypage_review($id)
+    {
+        $user = Auth::user();
+        $reservations = Reservation::all()->find($id);
+        return view('review',['user' =>$user,'reservations' => $reservations]);
+    }
+
+    public function review(Request $request)
     {
         $form = $request->all();
         Reservation::find($request->id)->update($form);

@@ -42,6 +42,7 @@
           </p>
           <p>
             <select name="number_people" class="reservation-form-box" id="reservation-form-number">
+              <option value="">人</option>
               <option value="1">1人</option>
               <option value="2">2人</option>
               <option value="3">3人</option>
@@ -58,15 +59,33 @@
               </tr>
               <tr>
                 <td width="100" height="45" class="confirm-content">Date</td>
-                <td class="confirm-content" id="confirmdate"></td>
+                <td class="confirm-content" id="confirmdate">{{old('reservation_date')}}</td>
+              </tr>
+              <tr>
+                @error('reservation_date')
+                <td width="100" height="20" class="confirm-content"></td>
+                <td class="confirm-content">※{{$message}}</td>
+                @enderror
               </tr>
               <tr>
                 <td width="100" height="45" class="confirm-content">Time</td>
-                <td class="confirm-content" id="confirmtime"></td>
+                <td class="confirm-content" id="confirmtime">{{old('reservation_time')}}</td>
+              </tr>
+              <tr>
+                @error('reservation_time')
+                <td width="100" height="20" class="confirm-content"></td>
+                <td class="confirm-content">※{{$message}}</td>
+                @enderror
               </tr>
               <tr>
                 <td width="100" height="45" class="confirm-content" >Number</td>
-                <td class="confirm-content"><span id="confirmnumber">1</span>人</td>
+                <td class="confirm-content"><span id="confirmnumber">{{old('number_people')}}</span>人</td>
+              </tr>
+              <tr>
+                @error('number_people')
+                <td width="100" height="20" class="confirm-content"></td>
+                <td class="confirm-content">※{{$message}}</td>
+                @enderror
               </tr>
             </table>
           </div>

@@ -22,11 +22,12 @@ class ReseController extends Controller
         $prefectures = Prefecture::all();
         $categories = Category::all();
         $likes = Like::all();
+        $areas = Restaurant::all()->keyBy('prefecture_id');
         $name = $request['name'];
         $prefecture_id = $request['prefecture_id'];
         $category_id= $request['category_id'];
         $restaurants = Restaurant::doSearch($name, $prefecture_id, $category_id);
-        $param = ['user' => $user,'prefectures' => $prefectures,'categories' => $categories, 'likes' => $likes];
+        $param = ['user' => $user,'prefectures' => $prefectures,'categories' => $categories, 'likes' => $likes,'areas'=>$areas];
         return view('index', ['restaurants' => $restaurants,'name' => $name, 'prefecture_id' => $prefecture_id, 'category_id' => $category_id],$param);
     }
 

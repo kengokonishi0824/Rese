@@ -55,6 +55,7 @@
           <input type="hidden" name="id" value="{{$reservations->id}}">
           <input type="hidden" name="user_id" value="{{$user->id}}">
 
+          @if($reservations->stars == null)
           <p>
             <select name="stars" class="review-star-box">
               <option value="">5段階で評価</option>
@@ -65,10 +66,29 @@
               <option value="5">5</option>
             </select>
           </p>
+          @else
+          <p>
+            <select name="stars" class="review-star-box">
+              <option value="{{$reservations->stars}}" selected>{{$reservations->stars}}</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </p>
+          @endif
+          
+          @if($reservations->comment == null)
           <textarea name="comment"  class="review-text-box" value="{{$reservations->reservation_id}}" placeholder="コメントを入力" allign="top"></textarea>
+          @else
+          <textarea name="comment"  class="review-text-box" value="{{$reservations->reservation_id}}" placeholder="{{$reservations->comment}}" allign="top"></textarea>
+          @endif
           </div>
+
           <div class="reservation">
             <input type="submit" value="レビューを投稿する" class="btn-reservation">
+            
           </div>
       </div>
         </form>

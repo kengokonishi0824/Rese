@@ -16,7 +16,7 @@
         <form method="POST" action="{{ route('login') }}">
             @csrf
             <div class="header-breeze">
-                login
+                    login
             </div>
             <x-auth-validation-errors class="mb-4" :errors="$errors" />
             <!-- Email Address -->

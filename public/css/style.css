@@ -494,6 +494,7 @@ body {
 
 .auth-validation-content{
   text-align: center;
+  margin: 0;
   padding: 0;
 }
 

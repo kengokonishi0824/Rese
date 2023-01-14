@@ -34,7 +34,11 @@
           @csrf
           <input type="hidden" name="id" value="{{$reservations->id}}">
           <p>
+            @if(old('reservation_date') == null)
             <input type="date" name="reservation_date" class="reservation-form-box" id="reservation-form-date" value="{{$reservations->reservation_date}}">
+            @else
+            <input type="date" name="reservation_date" class="reservation-form-box" id="reservation-form-date" value="{{old('reservation_date')}}">
+            @endif
           </p>
           <p>
             <input type="time" name="reservation_time" class="reservation-form-box" id="reservation-form-time" value="{{$reservations->reservation_time}}">
@@ -58,15 +62,45 @@
               </tr>
               <tr>
                 <td width="100" height="45" class="confirm-content">Date</td>
+                @if(old('reservation_date') == null)
                 <td class="confirm-content" id="confirmdate">{{$reservations->reservation_date}}</td>
+                @else
+                <td class="confirm-content" id="confirmdate">{{old('reservation_date')}}</td>
+                @endif
+              </tr>
+              <tr>
+                @error('reservation_date')
+                <td width="100" height="20" class="confirm-content"></td>
+                <td class="confirm-content">※{{$message}}</td>
+                @enderror
               </tr>
               <tr>
                 <td width="100" height="45" class="confirm-content">Time</td>
+                @if(old('reservation_time') == null)
                 <td class="confirm-content" id="confirmtime">{{substr($reservations->reservation_time,0,5)}}</td>
+                @else
+                <td class="confirm-content" id="confirmtime">{{substr(old('reservation_time'),0,5)}}</td>
+                @endif
+              </tr>
+              <tr>
+                @error('reservation_time')
+                <td width="100" height="20" class="confirm-content"></td>
+                <td class="confirm-content">※{{$message}}</td>
+                @enderror
               </tr>
               <tr>
                 <td width="100" height="45" class="confirm-content" >Number</td>
+                @if(old('number_people') == null)
                 <td class="confirm-content"><span id="confirmnumber">{{$reservations->number_people}}</span>人</td>
+                @else
+                <td class="confirm-content"><span id="confirmnumber">{{old('number_people')}}</span>人</td>
+                @endif
+              </tr>
+              <tr>
+                @error('number_people')
+                <td width="100" height="20" class="confirm-content"></td>
+                <td class="confirm-content">※{{$message}}</td>
+                @enderror
               </tr>
             </table>
           </div>

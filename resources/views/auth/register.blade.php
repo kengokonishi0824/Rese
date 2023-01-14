@@ -14,16 +14,13 @@
 
 
     <div class="page-breeze">
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
         <form method="POST" action="{{ route('register') }}">
             @csrf
-
             <div class="header-breeze">
                     Registration
             </div>
-
+            <!-- Validation Errors -->
+            <x-auth-validation-errors class="mb-4" :errors="$errors" />
             <!-- Name -->
             <div class="breeze-form">
                 <img src="{{asset('/picture/person_alt.png')}}" alt="" class="breeze-icon">

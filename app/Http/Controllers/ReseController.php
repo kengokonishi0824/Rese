@@ -78,7 +78,7 @@ class ReseController extends Controller
         return view('change',['user' =>$user,'reservations' => $reservations]);
     }
 
-    public function change_reservation(Request $request)
+    public function change_reservation(ReservationRequest $request)
     {
         $form = $request->all();
         Reservation::find($request->id)->update($form);

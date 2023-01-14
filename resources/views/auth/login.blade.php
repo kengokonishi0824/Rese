@@ -18,6 +18,7 @@
             <div class="header-breeze">
                     login
             </div>
+            <!-- Validation Errors -->
             <x-auth-validation-errors class="mb-4" :errors="$errors" />
             <!-- Email Address -->
             <div class="breeze-form">

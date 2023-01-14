@@ -16,7 +16,7 @@
   <div class="detail-left">
     <div class="detail-top">
       <p class="btn-back">
-        <a class="detail-back" href=/home><</a>
+        <a class="detail-back" href="/mypage"><</a>
         <span class="detail-restaurant">{{$reservations->restaurant->name}}</span>
       </p>
     </div>

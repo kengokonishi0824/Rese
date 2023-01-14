@@ -13,7 +13,7 @@
 @endif
 
 <div>
-  <form action="/home" method="GET" class="search-box">
+  <form action="/" method="GET" class="search-box">
     <p class="p-select-tag"><select name="prefecture_id" class="select-tag">
             <option value="0">All area</option>
       @foreach ($areas as $area)

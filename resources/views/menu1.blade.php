@@ -10,7 +10,7 @@
 
 <div class="menu-box">
   <p>
-    <a class="menu-link" href=/home>Home</a>
+    <a class="menu-link" href="/">Home</a>
   </p>
   <p>
     <form method="post" action="/logout">

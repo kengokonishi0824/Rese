@@ -45,12 +45,21 @@
           </p>
           <p>
             <select name="number_people" class="reservation-form-box" id="reservation-form-number" >
+              @if(old('number_people') == null)
               <option value="{{ $reservations->number_people}}" selected>{{$reservations->number_people}}人</option>
               <option value="1">1人</option>
               <option value="2">2人</option>
               <option value="3">3人</option>
               <option value="4">4人</option>
               <option value="5">5人</option>
+              @else
+              <option value="{{ $reservations->number_people}}" selected>{{old('number_people')}}人</option>
+              <option value="1">1人</option>
+              <option value="2">2人</option>
+              <option value="3">3人</option>
+              <option value="4">4人</option>
+              <option value="5">5人</option>
+              @endif
             </select>
           </p>
           </div>

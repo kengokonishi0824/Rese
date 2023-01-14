@@ -9,8 +9,8 @@ use App\Models\Like;
 use App\Models\Reservation;
 use App\Models\Review;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\ReservationRequest;
 use Illuminate\Http\Request;
+use App\Http\Requests\ReservationRequest;
 use Carbon\Carbon;
 
 
@@ -53,7 +53,7 @@ class ReseController extends Controller
         return view('detail',['user' =>$user,'restaurants' => $restaurants]);
     }
 
-    public function reservation(Request $request)
+    public function reservation(ReservationRequest $request)
     {
         $form = $request->all();
         Reservation::create($form);
@@ -78,7 +78,7 @@ class ReseController extends Controller
         return view('change',['user' =>$user,'reservations' => $reservations]);
     }
 
-    public function change_reservation(Request $request)
+    public function change_reservation(ReservationRequest $request)
     {
         $form = $request->all();
         Reservation::find($request->id)->update($form);

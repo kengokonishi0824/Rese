@@ -15,10 +15,11 @@
     <div class="page-breeze">
         <form method="POST" action="{{ route('login') }}">
             @csrf
-
             <div class="header-breeze">
                     login
             </div>
+            <!-- Validation Errors -->
+            <x-auth-validation-errors class="mb-4" :errors="$errors" />
             <!-- Email Address -->
             <div class="breeze-form">
                 <img src="{{asset('/picture/mail.png')}}" alt="" class="breeze-icon">

@@ -35,13 +35,14 @@
           <input type="hidden" name="user_id" value="{{$user->id}}">
           <input type="hidden" name="restaurant_id" value="{{$restaurants->id}}">
           <p>
-            <input type="date" name="reservation_date" class="reservation-form-box" id="reservation-form-date">
+            <input type="date" name="reservation_date" class="reservation-form-box" id="reservation-form-date" value="{{old('reservation_date')}}">
           </p>
           <p>
-            <input type="time" name="reservation_time" class="reservation-form-box" id="reservation-form-time">
+            <input type="time" name="reservation_time" class="reservation-form-box" id="reservation-form-time" value="{{old('reservation_time')}}">
           </p>
           <p>
             <select name="number_people" class="reservation-form-box" id="reservation-form-number">
+              <option value="" selected>{{old('number_people')}}人</option>
               <option value="1">1人</option>
               <option value="2">2人</option>
               <option value="3">3人</option>
@@ -58,15 +59,33 @@
               </tr>
               <tr>
                 <td width="100" height="45" class="confirm-content">Date</td>
-                <td class="confirm-content" id="confirmdate"></td>
+                <td class="confirm-content" id="confirmdate">{{old('reservation_date')}}</td>
+              </tr>
+              <tr>
+                @error('reservation_date')
+                <td width="100" height="20" class="confirm-content"></td>
+                <td class="confirm-content">※{{$message}}</td>
+                @enderror
               </tr>
               <tr>
                 <td width="100" height="45" class="confirm-content">Time</td>
-                <td class="confirm-content" id="confirmtime"></td>
+                <td class="confirm-content" id="confirmtime">{{old('reservation_time')}}</td>
+              </tr>
+              <tr>
+                @error('reservation_time')
+                <td width="100" height="20" class="confirm-content"></td>
+                <td class="confirm-content">※{{$message}}</td>
+                @enderror
               </tr>
               <tr>
                 <td width="100" height="45" class="confirm-content" >Number</td>
-                <td class="confirm-content"><span id="confirmnumber">1</span>人</td>
+                <td class="confirm-content"><span id="confirmnumber">{{old('number_people')}}</span>人</td>
+              </tr>
+              <tr>
+                @error('number_people')
+                <td width="100" height="20" class="confirm-content"></td>
+                <td class="confirm-content">※{{$message}}</td>
+                @enderror
               </tr>
             </table>
           </div>

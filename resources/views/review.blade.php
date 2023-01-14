@@ -67,6 +67,7 @@
             </select>
           </p>
           @else
+          @if(old('stars') == null )
           <p>
             <select name="stars" class="review-star-box">
               <option value="{{$reservations->stars}}" selected>{{$reservations->stars}}</option>
@@ -77,18 +78,31 @@
               <option value="5">5</option>
             </select>
           </p>
-          @endif
-          
-          @if($reservations->comment == null)
-          <textarea name="comment"  class="review-text-box" value="{{$reservations->reservation_id}}" placeholder="コメントを入力" allign="top"></textarea>
           @else
-          <textarea name="comment"  class="review-text-box" value="{{$reservations->reservation_id}}" placeholder="{{$reservations->comment}}" allign="top"></textarea>
+          <p>
+            <select name="stars" class="review-star-box">
+              <option value="{{old('stars')}}" selected>{{old('stars')}}</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </p>
+          @endif
+          @endif
+          @error('comment')
+          <p class="confirm-content">※{{$message}}</p>
+          @enderror
+          @if(old('comment') == null)
+          <textarea name="comment"  class="review-text-box" value="{{$reservations->reservation_id}}" placeholder="コメントを入力" allign="top">{{$reservations->comment}}</textarea>
+          @else
+          <textarea name="comment"  class="review-text-box" value="{{$reservations->reservation_id}}" placeholder="コメントを入力" allign="top">{{old('comment')}}</textarea>
           @endif
           </div>
 
           <div class="reservation">
             <input type="submit" value="レビューを投稿する" class="btn-reservation">
-            
           </div>
       </div>
         </form>

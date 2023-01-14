@@ -11,6 +11,7 @@ use App\Models\Review;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\ReservationRequest;
+use App\Http\Requests\ReviewRequest;
 use Carbon\Carbon;
 
 
@@ -92,7 +93,7 @@ class ReseController extends Controller
         return view('review',['user' =>$user,'reservations' => $reservations]);
     }
 
-    public function review(Request $request)
+    public function review(ReviewRequest $request)
     {
         $form = $request->all();
         Reservation::find($request->id)->update($form);

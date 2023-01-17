@@ -16,7 +16,7 @@ class AdminController extends Controller
 {
     public function manageRestaurant()
     {
-        return view('adminManager');
+        return view('admin.adminManager');
     }
 
     public function admin()

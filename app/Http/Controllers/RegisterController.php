@@ -14,7 +14,7 @@ class RegisterController extends Controller
 
     public function adminRegisterForm(Request $request)
     {
-        return view('adminRegister');
+        return view('admin.adminRegister');
     }
 
     protected function adminValidator(array $data)
@@ -44,7 +44,7 @@ class RegisterController extends Controller
         $user = $this->adminRegisterDatabase($request->all());
 
         if ($user) {
-            return view('adminRegister', ['registered' => true, 'registered_email' => $user->email]);
+            return view('admin.adminRegister', ['registered' => true, 'registered_email' => $user->email]);
         }
     }
 }

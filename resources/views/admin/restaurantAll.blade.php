@@ -10,6 +10,23 @@
 
 
 <div>
+  <p>
+    ログイン中：{{ Auth::guard('admin')->user()->name ?? 'undefined' }}
+  </p>
+  <p>
+    <a href="{{ route('admin.logout') }}">
+      ログアウト
+    </a>
+  </P>
+
+  <p>
+    <a href="/admin">
+      HOMEに戻る
+    </a>
+  </P>
+</div>
+
+<div>
   <form action="/admin/all" method="GET" class="search-box">
     <p class="p-select-tag"><select name="prefecture_id" class="select-tag">
             <option value="0">All area</option>
@@ -37,7 +54,7 @@
 
 <div class="restaurant_all">
   @foreach ($restaurants as $restaurant)
-  <a href="/" class="restaurant">
+  <a href="/admin/detail/{{$restaurant->id}}" class="restaurant">
       <img src="{{$restaurant->picture}}" class="picture">
       <p class="restaurant_name">{{$restaurant->name}}</p>
       <p class="restaurant_tag">#{{$restaurant->prefecture->prefecture}} #{{$restaurant->category->category}}</p>

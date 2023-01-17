@@ -42,4 +42,11 @@ class AdminController extends Controller
         $param = ['user' => $user,'prefectures' => $prefectures,'categories' => $categories, 'likes' => $likes,'areas'=>$areas];
         return view('admin.restaurantAll', ['restaurants' => $restaurants,'name' => $name, 'prefecture_id' => $prefecture_id, 'category_id' => $category_id],$param);
     }
+
+    public function adminDetail($id)
+    {
+        $user = Auth::user();
+        $restaurants = Restaurant::all()->find($id);
+        return view('admin.adminDetail',['user' =>$user,'restaurants' => $restaurants]);
+    }
 }

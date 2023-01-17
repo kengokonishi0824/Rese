@@ -43,6 +43,10 @@
             <input type="text" id="admin_level" name="admin_level">
         </div>
         <div>
+            <label for="VPN">VPN</label>
+            <input type="text" id="VPN" name="VPN">
+        </div>
+        <div>
             <button type="submit">Register</button>
         </div>
     </form>

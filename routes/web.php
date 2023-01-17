@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReseController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 
 Route::get('/home', function () {
     return view('welcome');
@@ -15,15 +17,15 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 Route::get('/admin/login', function () {
-    return view('adminLogin'); // blade.php
+    return view('admin.adminLogin'); // blade.php
 })->middleware('guest:admin');
-Route::post('/admin/login', [\App\Http\Controllers\LoginController::class, 'adminLogin'])->name('admin.login');
-Route::get('/admin/logout', [\App\Http\Controllers\LoginController::class, 'adminLogout'])->name('admin.logout');
-Route::get('/admin/register', [\App\Http\Controllers\RegisterController::class, 'adminRegisterForm'])->middleware('auth:admin');
-Route::post('/admin/register', [\App\Http\Controllers\RegisterController::class, 'adminRegister'])->middleware('auth:admin')->name('admin.register');
-Route::get('/admin/manger', [\App\Http\Controllers\AdminController::class, 'manageRestaurant'])->middleware('auth:admin');
-Route::get('/admin/all', [\App\Http\Controllers\AdminController::class, 'restaurantAll'])->middleware('auth:admin');
-
+Route::post('/admin/login', [LoginController::class, 'adminLogin'])->name('admin.login');
+Route::get('/admin/logout', [LoginController::class, 'adminLogout'])->name('admin.logout');
+Route::get('/admin/register', [RegisterController::class, 'adminRegisterForm'])->middleware('auth:admin');
+Route::post('/admin/register', [RegisterController::class, 'adminRegister'])->middleware('auth:admin')->name('admin.register');
+Route::get('/admin/manger', [AdminController::class, 'manageRestaurant'])->middleware('auth:admin');
+Route::get('/admin/all', [AdminController::class, 'restaurantAll'])->middleware('auth:admin');
+Route::get('/admin/detail/{id}', [AdminController::class, 'adminDetail'])->name('adminDetail')->middleware('auth:admin');
 
 Route::get('/', [ReseController::class, 'index'])->name('home');
 Route::get('/like/{restaurant}',[Resecontroller::class, 'like'])->name('like');

@@ -34,15 +34,14 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'admin_level' => $data['admin_level'],
+            'VPN' => $data['VPN'],
         ]);
     }
 
     public function adminRegister(Request $request)
     {
         $this->adminValidator($request->all())->validate();
-
         $user = $this->adminRegisterDatabase($request->all());
-
         if ($user) {
             return view('admin.adminRegister', ['registered' => true, 'registered_email' => $user->email]);
         }

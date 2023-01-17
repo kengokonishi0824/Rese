@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReseController;
-use App\Http\Controllers\LoginController;
 
 Route::get('/home', function () {
     return view('welcome');
@@ -21,6 +20,8 @@ Route::post('/admin/login', [\App\Http\Controllers\LoginController::class, 'admi
 Route::get('/admin/logout', [\App\Http\Controllers\LoginController::class, 'adminLogout'])->name('admin.logout');
 Route::get('/admin/register', [\App\Http\Controllers\RegisterController::class, 'adminRegisterForm'])->middleware('auth:admin');
 Route::post('/admin/register', [\App\Http\Controllers\RegisterController::class, 'adminRegister'])->middleware('auth:admin')->name('admin.register');
+Route::get('/admin/manger', [\App\Http\Controllers\adminController::class, 'manageRestaurant'])->middleware('auth:admin');
+
 
 Route::get('/', [ReseController::class, 'index'])->name('home');
 Route::get('/like/{restaurant}',[Resecontroller::class, 'like'])->name('like');

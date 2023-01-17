@@ -8,6 +8,27 @@
   <title>admin_page</title>
 </head>
 
+<div>
+  <p>
+    ログイン中：{{ Auth::guard('admin')->user()->name ?? 'undefined' }}
+  </p>
+  <a href="{{ route('admin.logout') }}">
+    ログアウト
+  </a>
+</div>
+
+<div class="menu-box">
+  <p>
+    <a class="menu-link" href="/admin/all">店舗一覧</a>
+  </p>
+  <p>
+    <a  class="menu-link" href="{{route('admin.register')}}">新規アカウント登録</a>
+  </p>
+  <p>
+    <a  class="menu-link" href="/manager/register">新規店舗登録</a>
+  </p>
+</div>
+
 <p>admin店追加</p>
 
 <form action="/add" method="post">
@@ -92,23 +113,3 @@
   @endforeach
 </table>
 
-<div>
-  <p>
-    ログイン中：{{ Auth::guard('admin')->user()->name ?? 'undefined' }}
-  </p>
-  <a href="{{ route('admin.logout') }}">
-    ログアウト
-  </a>
-</div>
-
-<div class="menu-box">
-  <p>
-    <a class="menu-link" href="/admin/all">店舗一覧</a>
-  </p>
-  <p>
-    <a  class="menu-link" href="{{route('admin.register')}}">新規アカウント登録</a>
-  </p>
-  <p>
-    <a  class="menu-link" href="/manager/register">新規店舗登録</a>
-  </p>
-</div>

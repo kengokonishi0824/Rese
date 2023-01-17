@@ -16,10 +16,15 @@ class LoginController extends Controller
         ]);
 
         if (Auth::guard('admin')->attempt($credentials)) { // ログイン試行
-            if ($request->user('admin')?->admin_level > 0) { // 管理権限レベルが0でないか
+            if ($request->user('admin')?->admin_level == 1) { // 管理権限レベルが0でないか
                 $request->session()->regenerate(); // セッション更新
-                return redirect()->intended(RouteServiceProvider::ADMIN_HOME); // ダッシュボードへ
-            } else {
+                return redirect()->intended(RouteServiceProvider::ADMIN_HOME);// ダッシュボードへ
+            } 
+            elseif ($request->user('admin')?->admin_level == 2){ // 管理権限レベルが1かどうか
+                $request->session()->regenerate(); // セッション更新
+                return redirect()->intended(RouteServiceProvider::ADMIN_for_MANAGER); // ダッシュボードへ
+            }
+            else {
                 Auth::guard('admin')->logout(); // if文でログインしてしまっているので、ログアウトさせる
                 $request->session()->regenerate(); // セッション更新
                 return back()->withErrors([ // 権限レベルが0の場合

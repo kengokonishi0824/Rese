@@ -116,14 +116,6 @@ class ReseController extends Controller
         return view('menu2');
     }
 
-    public function admin()
-    {
-        $restaurants = Restaurant::all();
-        $prefectures = Prefecture::all();
-        $categories = Category::all();
-        $param = ['restaurants' => $restaurants,'prefectures' => $prefectures,'categories' => $categories];
-        return view('admin',$param);
-    }
 
     public function create(Request $request)
     {

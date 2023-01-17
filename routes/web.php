@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReseController;
+use App\Http\Controllers\AdminController;
 
 Route::get('/home', function () {
     return view('welcome');
@@ -20,7 +21,8 @@ Route::post('/admin/login', [\App\Http\Controllers\LoginController::class, 'admi
 Route::get('/admin/logout', [\App\Http\Controllers\LoginController::class, 'adminLogout'])->name('admin.logout');
 Route::get('/admin/register', [\App\Http\Controllers\RegisterController::class, 'adminRegisterForm'])->middleware('auth:admin');
 Route::post('/admin/register', [\App\Http\Controllers\RegisterController::class, 'adminRegister'])->middleware('auth:admin')->name('admin.register');
-Route::get('/admin/manger', [\App\Http\Controllers\adminController::class, 'manageRestaurant'])->middleware('auth:admin');
+Route::get('/admin/manger', [\App\Http\Controllers\AdminController::class, 'manageRestaurant'])->middleware('auth:admin');
+Route::get('/admin/all', [\App\Http\Controllers\AdminController::class, 'restaurantAll'])->middleware('auth:admin');
 
 
 Route::get('/', [ReseController::class, 'index'])->name('home');
@@ -40,7 +42,7 @@ Route::get('/menu1', [ReseController::class, 'menu1']);
 Route::get('/menu2', [ReseController::class, 'menu2']);
 
 
-Route::get('/admin', [ReseController::class, 'admin'])->middleware('auth:admin');
+Route::get('/admin', [AdminController::class, 'admin'])->middleware('auth:admin');
 Route::post('/add', [ReseController::class, 'create']);
 Route::get('/edit', [ReseController::class, 'edit']);
 Route::post('/edit', [ReseController::class, 'update']);

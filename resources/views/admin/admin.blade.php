@@ -109,6 +109,6 @@
     <a  class="menu-link" href="{{route('admin.register')}}">新規アカウント登録</a>
   </p>
   <p>
-    <a  class="menu-link" href="{{route('admin.register')}}">新規店舗登録</a>
+    <a  class="menu-link" href="/manager/register">新規店舗登録</a>
   </p>
 </div>

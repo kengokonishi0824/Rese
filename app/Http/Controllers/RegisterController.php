@@ -17,6 +17,11 @@ class RegisterController extends Controller
         return view('admin.adminRegister');
     }
 
+    public function managerRegisterForm(Request $request)
+    {
+        return view('admin.managerRegister');
+    }
+
     protected function adminValidator(array $data)
     {
         return Validator::make($data, [

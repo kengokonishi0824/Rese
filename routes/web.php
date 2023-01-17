@@ -23,6 +23,7 @@ Route::post('/admin/login', [LoginController::class, 'adminLogin'])->name('admin
 Route::get('/admin/logout', [LoginController::class, 'adminLogout'])->name('admin.logout');
 Route::get('/admin/register', [RegisterController::class, 'adminRegisterForm'])->middleware('auth:admin');
 Route::post('/admin/register', [RegisterController::class, 'adminRegister'])->middleware('auth:admin')->name('admin.register');
+Route::get('/manager/register', [RegisterController::class, 'managerRegisterForm'])->middleware('auth:admin');
 Route::get('/admin/manger', [AdminController::class, 'manageRestaurant'])->middleware('auth:admin');
 Route::get('/admin/all', [AdminController::class, 'restaurantAll'])->middleware('auth:admin');
 Route::get('/admin/detail/{id}', [AdminController::class, 'adminDetail'])->name('adminDetail')->middleware('auth:admin');

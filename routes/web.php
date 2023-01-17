@@ -16,7 +16,7 @@ require __DIR__.'/auth.php';
 
 Route::get('/admin/login', function () {
     return view('adminLogin'); // blade.php
-});
+})->middleware('guest:admin');
 
 Route::post('/admin/login', [\App\Http\Controllers\LoginController::class, 'adminLogin'])->name('admin.login');
 

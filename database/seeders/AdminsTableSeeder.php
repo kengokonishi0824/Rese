@@ -19,6 +19,7 @@ class AdminsTableseeder extends Seeder
             'name' => 'owner',
             'email' => 'owner@example.com',
             'password' => Hash::make('password'),
+            'VPN' => '0',
             'admin_level' => 1
         ];
         Admin::create($param);
@@ -27,6 +28,7 @@ class AdminsTableseeder extends Seeder
             'name' => 'sub',
             'email' => 'sub@example.com',
             'password' => Hash::make('password'),
+            'VPN' => '0',
             'admin_level' => 0
         ];
         Admin::create($param);

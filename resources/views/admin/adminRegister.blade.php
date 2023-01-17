@@ -39,12 +39,9 @@
             <input type="password" id="password_confirmation" name="password_confirmation">
         </div>
         <div>
-            <label for="admin_level">AdminLevel</label>
-            <input type="text" id="admin_level" name="admin_level">
-        </div>
-        <div>
             <label for="VPN">VPN</label>
             <input type="text" id="VPN" name="VPN">
+            <input type="hidden" id="admin_level" name="admin_level" value="1">
         </div>
         <div>
             <button type="submit">Register</button>

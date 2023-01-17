@@ -90,5 +90,10 @@
     </td>
   </tr>
   @endforeach
+</table>
 
-
+<div>
+  <a href="{{route('admin.register')}}">
+    アカウント作成
+  </a>
+</div>

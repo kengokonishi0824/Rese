@@ -93,6 +93,15 @@
 </table>
 
 <div>
+  <p>
+    ログイン中：{{ Auth::guard('admin')->user()->name ?? 'undefined' }}
+  </p>
+  <a href="{{ route('admin.logout') }}">
+    ログアウト
+  </a>
+</div>
+
+<div>
   <a href="{{route('admin.register')}}">
     アカウント作成
   </a>

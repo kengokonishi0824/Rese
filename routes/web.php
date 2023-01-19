@@ -24,7 +24,7 @@ Route::get('/admin/logout', [LoginController::class, 'adminLogout'])->name('admi
 Route::get('/admin/register', [RegisterController::class, 'adminRegisterForm'])->middleware('auth:admin');
 Route::post('/admin/register', [RegisterController::class, 'adminRegister'])->middleware('auth:admin')->name('admin.register');
 Route::get('/manager/register', [RegisterController::class, 'managerRegisterForm'])->middleware('auth:admin');
-Route::get('/admin/manger', [AdminController::class, 'manageRestaurant'])->middleware('auth:admin');
+Route::get('/admin/manager', [AdminController::class, 'manageRestaurant'])->middleware('auth:admin');
 Route::get('/admin/all', [AdminController::class, 'restaurantAll'])->middleware('auth:admin');
 Route::get('/admin/detail/{id}', [AdminController::class, 'adminDetail'])->name('adminDetail')->middleware('auth:admin');
 Route::get('/admin/change/{id}', [AdminController::class, 'adminChange'])->name('adminChange')->middleware('auth:admin');
@@ -32,6 +32,7 @@ Route::post('/admin/change', [AdminController::class, 'adminChangeRestaurant'])-
 Route::get('/admin/addRestaurant', [AdminController::class, 'adminAddRestaurant'])->name('adminAddRestaurant')->middleware('auth:admin');
 Route::post('/admin/add', [AdminController::class, 'addRestaurant'])->name('adminAddRestaurant')->middleware('auth:admin');
 Route::get('/admin/add', [AdminController::class, 'addRestaurant'])->name('adminAddRestaurant')->middleware('auth:admin');
+Route::get('/admin/reservation/{id}', [AdminController::class, 'adminReservation'])->name('adminDetail')->middleware('auth:admin');
 
 Route::get('/', [ReseController::class, 'index'])->name('home');
 Route::get('/like/{restaurant}',[Resecontroller::class, 'like'])->name('like');

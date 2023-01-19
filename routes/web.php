@@ -40,18 +40,18 @@ Route::get('/unlike/{restaurant}',[Resecontroller::class, 'unlike'])->name('unli
 Route::get('/detail/{id}', [ReseController::class, 'detail'])->name('detail');
 Route::post('/done', [ReseController::class, 'reservation']);
 Route::get('/done', [ReseController::class, 'reservation']);
-Route::get('/mypage', [ReseController::class, 'mypage']);
+Route::get('/mypage', [ReseController::class, 'mypage'])->middleware('auth');
 Route::post('/remove',[Resecontroller::class, 'remove'])->name('remove');
 Route::get('/mypage/change/{id}', [ReseController::class, 'mypage_change'])->name('mypage_change');
 Route::post('/change_reservation',[Resecontroller::class, 'change_reservation'])->name('change_reservation');
 Route::get('/mypage/review/{id}', [ReseController::class, 'mypage_review'])->name('mypage_review');
 Route::post('/review', [ReseController::class, 'review'])->name('review');
 Route::get('/change_reservation',[Resecontroller::class, 'change_reservation'])->name('change_reservation');
-Route::get('/menu1', [ReseController::class, 'menu1']);
+Route::get('/menu1', [ReseController::class, 'menu1'])->middleware('auth');
 Route::get('/menu2', [ReseController::class, 'menu2']);
 
 
-Route::get('/admin', [AdminController::class, 'admin'])->middleware('auth:admin');
+Route::get('/admin', [AdminController::class, 'admin'])->middleware(['auth', 'admin']);
 Route::post('/add', [ReseController::class, 'create']);
 Route::get('/edit', [ReseController::class, 'edit']);
 Route::post('/edit', [ReseController::class, 'update']);

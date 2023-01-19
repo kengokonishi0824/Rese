@@ -17,7 +17,8 @@ class Admin extends Authenticatable
         'name',
         'email',
         'password',
-        'admin_level'
+        'admin_level',
+        'VPN'
     ];
     
 

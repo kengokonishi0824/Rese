@@ -8,32 +8,35 @@
   <title>admin_page</title>
 </head>
 
-<p>admin店追加</p>
+<div>
+  <p>
+    ログイン中：{{ Auth::guard('admin')->user()->name ?? 'undefined' }}
+  </p>
+  <a href="{{ route('admin.logout') }}">
+    ログアウト
+  </a>
+</div>
 
-<form action="/add" method="post">
-<input type="text" name="name" class="name-add-form">
-<select name="prefecture_id" class="select-prefecture">
-      @foreach ($prefectures as $prefecture)
-            <option value="{{$prefecture->id}}">{{$prefecture->prefecture}}</option>
-      @endforeach
-    </select>
-    <select name="category_id" class="select-category">
-      @foreach ($categories as $category)
-            <option value="{{$category->id}}">{{$category->category}}</option>
-      @endforeach
-    </select>
-    <input type="text" name="overview" class="overview-add-form">
-    <input type="text" name="picture" class="picture-add-form">
-    <input class="button-add" type="submit" value="追加">
-    </div>
-    </form>
-
+<div class="menu-box">
+  <p>
+    <a class="menu-link" href="/admin/all">店舗一覧</a>
+  </p>
+  <p>
+    <a  class="menu-link" href="admin/register">管理者アカウント新規登録</a>
+  </p>
+  <p>
+    <a  class="menu-link" href="/manager/register">店舗マネジャーアカウント新規登録</a>
+  </p>
+  <p>
+    <a  class="menu-link" href="/admin/addRestaurant">店舗新規登録</a>
+  </p>
+</div>
 
 <p>admin店一覧</p>
 
 <table class="todo-list-table">
   <tr>
-    <th>id</th>
+    <th>VPN</th>
     <th>店名</th>
     <th>都道府県</th>
     <th>ジャンル</th>
@@ -92,17 +95,3 @@
   @endforeach
 </table>
 
-<div>
-  <p>
-    ログイン中：{{ Auth::guard('admin')->user()->name ?? 'undefined' }}
-  </p>
-  <a href="{{ route('admin.logout') }}">
-    ログアウト
-  </a>
-</div>
-
-<div>
-  <a href="{{route('admin.register')}}">
-    アカウント作成
-  </a>
-</div>

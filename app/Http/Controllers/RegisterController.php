@@ -14,7 +14,12 @@ class RegisterController extends Controller
 
     public function adminRegisterForm(Request $request)
     {
-        return view('adminRegister');
+        return view('admin.adminRegister');
+    }
+
+    public function managerRegisterForm(Request $request)
+    {
+        return view('admin.managerRegister');
     }
 
     protected function adminValidator(array $data)
@@ -34,17 +39,16 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'admin_level' => $data['admin_level'],
+            'VPN' => $data['VPN'],
         ]);
     }
 
     public function adminRegister(Request $request)
     {
         $this->adminValidator($request->all())->validate();
-
         $user = $this->adminRegisterDatabase($request->all());
-
         if ($user) {
-            return view('adminRegister', ['registered' => true, 'registered_email' => $user->email]);
+            return view('admin.adminRegister', ['registered' => true, 'registered_email' => $user->email]);
         }
     }
 }

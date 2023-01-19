@@ -27,6 +27,8 @@ Route::get('/manager/register', [RegisterController::class, 'managerRegisterForm
 Route::get('/admin/manger', [AdminController::class, 'manageRestaurant'])->middleware('auth:admin');
 Route::get('/admin/all', [AdminController::class, 'restaurantAll'])->middleware('auth:admin');
 Route::get('/admin/detail/{id}', [AdminController::class, 'adminDetail'])->name('adminDetail')->middleware('auth:admin');
+Route::get('/admin/change/{id}', [AdminController::class, 'adminChange'])->name('adminChange')->middleware('auth:admin');
+Route::post('/admin/change', [AdminController::class, 'adminChangeRestaurant'])->name('adminChangeRestaurant')->middleware('auth:admin');
 Route::get('/admin/addRestaurant', [AdminController::class, 'adminAddRestaurant'])->name('adminAddRestaurant')->middleware('auth:admin');
 Route::post('/admin/add', [AdminController::class, 'addRestaurant'])->name('adminAddRestaurant')->middleware('auth:admin');
 Route::get('/admin/add', [AdminController::class, 'addRestaurant'])->name('adminAddRestaurant')->middleware('auth:admin');

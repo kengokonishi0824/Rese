@@ -67,4 +67,19 @@ class AdminController extends Controller
         return redirect('admin.admin');;
     }
 
+    public function adminChange($id)
+    {
+        $user = Auth::user();
+        $restaurants = Restaurant::all()->find($id);
+        return view('admin.adminChange',['user' =>$user,'restaurants' => $restaurants]);
+    }
+
+    public function adminChangeRestaurant(Request $request)
+    {
+        $user = Auth::user();
+        $form = $request->all();
+        Restaurant::find($request->id)->update($form);
+        return view('admin.adminManager',['user'=>$user]);
+    }
+
 }

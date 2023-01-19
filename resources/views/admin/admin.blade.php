@@ -22,10 +22,13 @@
     <a class="menu-link" href="/admin/all">店舗一覧</a>
   </p>
   <p>
-    <a  class="menu-link" href="{{route('admin.register')}}">新規アカウント登録</a>
+    <a  class="menu-link" href="admin/register">新規アカウント登録</a>
   </p>
   <p>
-    <a  class="menu-link" href="/manager/register">新規店舗登録</a>
+    <a  class="menu-link" href="/manager/register">新規店舗アカウント登録</a>
+  </p>
+  <p>
+    <a  class="menu-link" href="/admin/addRestaurant">新規店舗登録</a>
   </p>
 </div>
 

@@ -49,4 +49,20 @@ class AdminController extends Controller
         $restaurants = Restaurant::all()->find($id);
         return view('admin.adminDetail',['user' =>$user,'restaurants' => $restaurants]);
     }
+
+    public function adminAddRestaurant()
+    {
+        $categories = Category::all();
+        $prefectures = Prefecture::all();
+        $param = ['prefectures' => $prefectures,'categories' => $categories];
+        return view('admin.addRestaurant',$param);
+    }
+    
+    public function addRestaurant(Request $request)
+    {
+        $form = $request->all();
+        Restaurant::create($form);
+        return redirect('admin.admin');;
+    }
+
 }

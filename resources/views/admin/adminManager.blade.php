@@ -18,3 +18,18 @@
 </div>
 
 <p>{{ Auth::guard('admin')->user()->id }}</p>
+
+<div class="menu-box">
+  <p>
+    <a class="menu-link" href="/admin/reservation/{{$user->VPN}}">予約確認</a>
+  </p>
+  <p>
+    <a class="menu-link" href="/admin/review/{{$user->VPN}}">レビュー確認</a>
+  </p>
+  <p>
+    <a class="menu-link" href="/admin/detail/{{$user->VPN}}">店舗ページ</a>
+  </p>
+  <p>
+    <a  class="menu-link" href="/admin/change/{{$user->VPN}}">店舗情報更新</a>
+  </p>
+</div>

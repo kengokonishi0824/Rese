@@ -6,15 +6,6 @@
   <title>admin_detail</title>
 </head>
 
-<div>
-  <p>
-    ログイン中：{{ Auth::guard('admin')->user()->name ?? 'undefined' }}
-  </p>
-  <a href="{{ route('admin.logout') }}">
-    ログアウト
-  </a>
-</div>
-
 <div class="detail-page">
   <div class="detail-left">
     <div class="detail-top">
@@ -27,5 +18,3 @@
     <p class="">#{{$restaurants->prefecture->prefecture}} #{{$restaurants->category->category}}</p>
     <p class="">{{$restaurants->overview}}</p>
   </div>
-
-  

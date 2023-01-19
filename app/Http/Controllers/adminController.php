@@ -16,7 +16,9 @@ class AdminController extends Controller
 {
     public function manageRestaurant()
     {
-        return view('admin.adminManager');
+        $user = Auth::user();
+        $param = ['user' => $user];
+        return view('admin.adminManager',$param);
     }
 
     public function admin()

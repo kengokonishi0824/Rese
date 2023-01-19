@@ -22,42 +22,21 @@
     <a class="menu-link" href="/admin/all">店舗一覧</a>
   </p>
   <p>
-    <a  class="menu-link" href="admin/register">新規アカウント登録</a>
+    <a  class="menu-link" href="admin/register">管理者アカウント新規登録</a>
   </p>
   <p>
-    <a  class="menu-link" href="/manager/register">新規店舗アカウント登録</a>
+    <a  class="menu-link" href="/manager/register">店舗マネジャーアカウント新規登録</a>
   </p>
   <p>
-    <a  class="menu-link" href="/admin/addRestaurant">新規店舗登録</a>
+    <a  class="menu-link" href="/admin/addRestaurant">店舗新規登録</a>
   </p>
 </div>
-
-<p>admin店追加</p>
-
-<form action="/add" method="post">
-<input type="text" name="name" class="name-add-form">
-<select name="prefecture_id" class="select-prefecture">
-      @foreach ($prefectures as $prefecture)
-            <option value="{{$prefecture->id}}">{{$prefecture->prefecture}}</option>
-      @endforeach
-    </select>
-    <select name="category_id" class="select-category">
-      @foreach ($categories as $category)
-            <option value="{{$category->id}}">{{$category->category}}</option>
-      @endforeach
-    </select>
-    <input type="text" name="overview" class="overview-add-form">
-    <input type="text" name="picture" class="picture-add-form">
-    <input class="button-add" type="submit" value="追加">
-    </div>
-    </form>
-
 
 <p>admin店一覧</p>
 
 <table class="todo-list-table">
   <tr>
-    <th>id</th>
+    <th>VPN</th>
     <th>店名</th>
     <th>都道府県</th>
     <th>ジャンル</th>

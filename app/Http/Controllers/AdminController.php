@@ -94,4 +94,15 @@ class AdminController extends Controller
         return view('admin.adminReservation',['user' => $user, 'reservations' => $reservations, 'likes' => $likes, 'now' =>$now ,'week'=>$week]) ;
     }
 
+    public function adminReview($id)
+    {
+        $user = Auth::user();
+        $reservations = Reservation::all()->where('restaurant_id',auth()->user()->VPN)->sortBy("reservation_date");
+        $likes = Like::all()->where('user_id',auth()->user()->id)->sortBy("restaurant_id");
+        $now = Carbon::now()->format('Y-m-d');
+        $dt = Carbon::now();
+        $week = $dt->subWeek()->format('Y-m-d');
+        return view('admin.adminReview',['user' => $user, 'reservations' => $reservations, 'likes' => $likes, 'now' =>$now ,'week'=>$week]) ;
+    }
+
 }

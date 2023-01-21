@@ -33,6 +33,7 @@ Route::get('/admin/addRestaurant', [AdminController::class, 'adminAddRestaurant'
 Route::post('/admin/add', [AdminController::class, 'addRestaurant'])->name('adminAddRestaurant')->middleware('auth:admin');
 Route::get('/admin/add', [AdminController::class, 'addRestaurant'])->name('adminAddRestaurant')->middleware('auth:admin');
 Route::get('/admin/reservation/{id}', [AdminController::class, 'adminReservation'])->name('adminDetail')->middleware('auth:admin');
+Route::get('/admin/review/{id}', [AdminController::class, 'adminReview'])->name('adminDetail')->middleware('auth:admin');
 
 Route::get('/', [ReseController::class, 'index'])->name('home');
 Route::get('/like/{restaurant}',[Resecontroller::class, 'like'])->name('like');

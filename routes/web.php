@@ -18,7 +18,7 @@ require __DIR__.'/auth.php';
 
 Route::get('/admin/login', function () {
     return view('admin.adminLogin'); // blade.php
-})->middleware('guest:admin');
+});
 Route::post('/admin/login', [LoginController::class, 'adminLogin'])->name('admin.login');
 Route::get('/admin/logout', [LoginController::class, 'adminLogout'])->name('admin.logout');
 Route::get('/admin/register', [RegisterController::class, 'adminRegisterForm'])->middleware('auth:admin');
@@ -51,7 +51,7 @@ Route::get('/menu1', [ReseController::class, 'menu1'])->middleware('auth');
 Route::get('/menu2', [ReseController::class, 'menu2']);
 
 
-Route::get('/admin', [AdminController::class, 'admin'])->middleware(['auth', 'admin']);
+Route::get('/admin', [AdminController::class, 'admin'])->middleware(['auth:admin']);
 Route::post('/add', [ReseController::class, 'create']);
 Route::get('/edit', [ReseController::class, 'edit']);
 Route::post('/edit', [ReseController::class, 'update']);

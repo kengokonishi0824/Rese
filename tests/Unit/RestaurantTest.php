@@ -38,7 +38,6 @@ class RestaurantTest extends TestCase
         $this->assertEquals(1, $searchedByName->count());
         $this->assertTrue($searchedByName->first()->is($restaurant));
 
-        $restaurant->delete();
     }
 
     public function testPatternMatchSearchRestaurntByName()

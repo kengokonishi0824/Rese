@@ -35,6 +35,10 @@
           <td width="100" height="45" class="confirm-content">Number</td>
           <td class="confirm-content">{{$reservation->number_people}}人</td>
         </tr>
+        <tr>
+          <td width="100" height="45" class="confirm-content">Update</td>
+          <td class="confirm-content">{{substr($reservation->updated_at,0,16)}}</td>
+        </tr>
       </table>
     </div>
     @endforeach

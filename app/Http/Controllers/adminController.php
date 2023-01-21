@@ -13,7 +13,7 @@ use App\Models\Reservation;
 use App\Models\Review;
 use Carbon\Carbon;
 
-class AdminController extends Controller
+class AdminController extends Controller//大文字への変更考慮
 {
     public function manageRestaurant()
     {

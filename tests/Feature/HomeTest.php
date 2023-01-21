@@ -23,12 +23,12 @@ class HomeTest extends TestCase
     }
 
     /**
-     * /homeにアクセスできるか確認する
+     * /にアクセスできるか確認する
      */
     public function testCanAccess()
     {
-        $response = $this->get('/home');
-        $response->assertStatus(200);
+        $response = $this->get('/');
+        $response->assertStatus(200);//homeへのアクセスが正しいか200であれば正しい
     }
 
     public function testIsRestrauntsDisplayed()

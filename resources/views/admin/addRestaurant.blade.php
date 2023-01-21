@@ -12,9 +12,16 @@
   <p>
     ログイン中：{{ Auth::guard('admin')->user()->name ?? 'undefined' }}
   </p>
-  <a href="{{ route('admin.logout') }}">
-    ログアウト
-  </a>
+  <p>
+    <a href="{{ route('admin.logout') }}">
+      ログアウト
+    </a>
+  </P>
+  <p>
+    <a href="/admin">
+      HOMEに戻る
+    </a>
+  </P>
 </div>
 
     <form method="POST" action="/add">

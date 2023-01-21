@@ -8,7 +8,23 @@
   <title>admin_page</title>
 </head>
 
-<body class="antialiased">
+<div>
+  <p>
+    ログイン中：{{ Auth::guard('admin')->user()->name ?? 'undefined' }}
+  </p>
+  <p>
+    <a href="{{ route('admin.logout') }}">
+      ログアウト
+    </a>
+  </P>
+  <p>
+    <a href="/admin">
+      HOMEに戻る
+    </a>
+  </P>
+</div>
+
+<div class="page-breeze">
 
     @if ($errors->any())
         @foreach ($errors->all() as $error)
@@ -16,35 +32,40 @@
         @endforeach
     @endif
 
-    @isset($registered)
-        <div>登録に成功しました。メールアドレス：{{ $registered_email }}</div>
-    @endisset
+    
 
     <form method="POST" action="{{ route('admin.register') }}">
         @csrf
-        <div>
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name">
+        <div class="header-breeze">
+            Registration for Admins
         </div>
-        <div>
-            <label for="email">Mail</label>
-            <input type="text" id="email" name="email">
+        <div class="breeze-form">
+                <img src="{{asset('/picture/person_alt.png')}}" alt="" class="breeze-icon">
+                <x-input  placeholder="Username" id="name" class="breeze-form-box" type="text" name="name" :value="old('name')" required autofocus />
         </div>
-        <div>
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password">
+
+        <div class="breeze-form">
+                <img src="{{asset('/picture/mail.png')}}" alt="" class="breeze-icon">
+                <x-input  placeholder="Email" id="email" class="breeze-form-box" type="email" name="email" :value="old('email')" required />
+            </div>
+            
+        <div class="breeze-form">
+            <img src="{{asset('/picture/lock.png')}}" alt="" class="breeze-icon">
+            <x-input  placeholder="Password" id="password" class="breeze-form-box" type="password" name="password" required autocomplete="current-password" />
         </div>
-        <div>
-            <label for="password_confirmation">Password(confirmed)</label>
-            <input type="password" id="password_confirmation" name="password_confirmation">
+
+        <div class="breeze-form">
+            <img src="{{asset('/picture/lock.png')}}" alt="" class="breeze-icon">
+            <x-input  placeholder="Password(確認用)" id="password_confirmation" class="breeze-form-box" type="password" name="password_confirmation" required autocomplete="current-password" />
         </div>
-        <div>
-            <label for="VPN">VPN</label>
-            <input type="text" id="VPN" name="VPN">
-            <input type="hidden" id="admin_level" name="admin_level" value="1">
-        </div>
-        <div>
-            <button type="submit">Register</button>
+
+        <input type="hidden" id="VPN" name="VPN" value="0">
+        <input type="hidden" id="admin_level" name="admin_level" value="1">
+
+        <div class="btn-breeze">
+            <x-button class="ml-3">
+                {{ __('登録') }}
+            </x-button>
         </div>
     </form>
-</body>
+</div>

@@ -25,7 +25,10 @@
     </div>
     <img src="{{$restaurants->picture}}" class="detail-picture">
     <p class="">#{{$restaurants->prefecture->prefecture}} #{{$restaurants->category->category}}</p>
-    <p class="">{{$restaurants->overview}}</p>
+    <form action="/admin/change" method="POST">
+      @csrf
+      <textarea name="overview" class="overview-content" allign="top">{{$restaurants->overview}} </textarea>
+      <input type="hidden" name="id" value="{{$restaurants->id}}">
+      <input type="submit" value="内容変更">
+    </form>
   </div>
-
-  

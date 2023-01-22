@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Like;
 use App\Models\Reservation;
 use App\Models\Review;
+use App\Models\Time;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\ReservationRequest;

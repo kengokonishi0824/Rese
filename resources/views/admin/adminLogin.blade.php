@@ -8,19 +8,43 @@
   <title>admin_page</title>
 </head>
 
-<body>
-        @if ($errors->any())  {{--  エラーがあれば出力する --}}
+
+  <p>
+    <a href="/admin">
+      HOMEに戻る
+    </a>
+  </P>
+
+
+<div class="page-breeze">
+    <div class="header-breeze">
+        Login for Admins
+    </div>
+        @if ($errors->any()) 
             @foreach ($errors->all() as $error)
                 <div>{{ $error }}</div>
             @endforeach
         @endif
+        @isset($registered)
+        <div>登録に成功しました。メールアドレス：{{ $registered_email }} にてログインください。</div>
+        @endisset
 
-        <form method="POST" action="/admin/login"> 
-            @csrf
-            <label for="email">Mail</label>
-            <input type="text" id="email" name="email">
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password">
-            <button type="submit">Login</button>
+    <form method="POST" action="/admin/login"> 
+        @csrf
+        <div class="breeze-form">
+            <img src="{{asset('/picture/mail.png')}}" alt="" class="breeze-icon">
+            <x-input  placeholder="Email" id="email" class="breeze-form-box" type="email" name="email" :value="old('email')" required autofocus />
+        </div>
+            
+        <div class="breeze-form">
+            <img src="{{asset('/picture/lock.png')}}" alt="" class="breeze-icon">
+            <x-input  placeholder="Password" id="password" class="breeze-form-box" type="password" name="password" required autocomplete="current-password" />
+        </div>
+
+        <div class="btn-breeze">
+            <x-button class="ml-3">
+                {{ __('ログイン') }}
+            </x-button>
+        </div>
         </form>
-    </body>
+</div>

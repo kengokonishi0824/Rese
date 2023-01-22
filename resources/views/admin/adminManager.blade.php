@@ -17,7 +17,6 @@
   </a>
 </div>
 
-<p>{{ Auth::guard('admin')->user()->id }}</p>
 
 <div class="menu-box">
   <p>

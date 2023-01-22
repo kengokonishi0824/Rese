@@ -7,9 +7,9 @@
 </head>
 
 <div class="mypage-left">
-    <p class="mypage-subtitle">予約状況</p>
-    <?php $number=1;?>
     @foreach ($reservations as $reservation)
+    <p class="mypage-subtitle">"{{$reservation->restaurant->name}}"予約状況</p>
+    <?php $number=1;?>
     <div class="reservation-all">
       <div class="mypage-reservation-header">
         <div class="reservation-header">
@@ -20,8 +20,8 @@
       </div>
       <table>
         <tr>
-          <td width="100" height="45" class="confirm-content">shop</td>
-          <td class="confirm-content">{{$reservation->restaurant->name}}</td>
+          <td width="100" height="45" class="confirm-content">Name</td>
+          <td class="confirm-content">{{$reservation->user->name}}</td>
         </tr>
         <tr>
           <td width="100" height="45" class="confirm-content">Date</td>
@@ -34,6 +34,10 @@
         <tr>
           <td width="100" height="45" class="confirm-content">Number</td>
           <td class="confirm-content">{{$reservation->number_people}}人</td>
+        </tr>
+        <tr>
+          <td width="100" height="45" class="confirm-content">Update</td>
+          <td class="confirm-content">{{substr($reservation->updated_at,0,16)}}</td>
         </tr>
       </table>
     </div>

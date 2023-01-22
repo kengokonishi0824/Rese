@@ -18,7 +18,6 @@
       ログアウト
     </a>
   </P>
-
   <p>
     <a href="/admin">
       HOMEに戻る

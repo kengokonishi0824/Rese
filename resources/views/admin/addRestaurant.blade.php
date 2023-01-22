@@ -12,43 +12,49 @@
   <p>
     ログイン中：{{ Auth::guard('admin')->user()->name ?? 'undefined' }}
   </p>
-  <a href="{{ route('admin.logout') }}">
-    ログアウト
-  </a>
+  <p>
+    <a href="{{ route('admin.logout') }}">
+      ログアウト
+    </a>
+  </P>
+  <p>
+    <a href="/admin">
+      HOMEに戻る
+    </a>
+  </P>
 </div>
 
-    <form method="POST" action="/add">
-        @csrf
-        <div>
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name">
-        </div>
-        <div>
-            <label for="email">Area</label>
-              <select name="prefecture_id" class="select-prefecture">
-              @foreach ($prefectures as $prefecture)
-              <option value="{{$prefecture->id}}">{{$prefecture->prefecture}}</option>
-              @endforeach
-              </select>
-    </select>
-        </div>
-        <div>
-            <label for="password">Genre</label>
-              <select name="category_id" class="select-category">
-              @foreach ($categories as $category)
-              <option value="{{$category->id}}">{{$category->category}}</option>
-              @endforeach
-              </select>
-        </div>
-        <div>
-            <label >Overview</label>
-            <input type="text" name="overview">
-        </div>
-        <div>
-            <label for="VPN">Picture</label>
-            <input type="text" name="picture">
-        </div>
-        <div>
-            <button type="submit">Register</button>
-        </div>
+<div class="detail-page">
+  <div class="detail-left">
+    <div class="detail-top">
+      <form method="POST" action="/add">
+        <span class="detail-restaurant">
+          Name
+          <input type="text" id="name" name="name">
+        </span>
+    </div>
+    <img src="" class="detail-picture">
+    Picture
+    <input type="text" name="picture">
+    <p class="">
+      # Area
+      <select name="prefecture_id" class="select-prefecture">
+      @foreach ($prefectures as $prefecture)
+      <option value="{{$prefecture->id}}">{{$prefecture->prefecture}}</option>
+      @endforeach
+      </select>
+    </p>
+    <p class="">
+      # Genre
+      <select name="category_id" class="select-category">
+      @foreach ($categories as $category)
+      <option value="{{$category->id}}">{{$category->category}}</option>
+      @endforeach
+      </select>
+    </p>
+    <form action="/admin/change" method="POST">
+      @csrf
+      <textarea name="overview" class="overview-content" allign="top"></textarea>
+      <input type="submit" value="この内容で店舗を登録">
     </form>
+  </div>

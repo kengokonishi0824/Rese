@@ -104,11 +104,6 @@
             予約{{$number}} 
           </p>
         </div>
-        <form action="/remove" method="POST" class="reservation-number">
-          @csrf
-          <input type="hidden" name="id" value="{{$reservation->id}}">
-          <input type="image" src="{{asset('/picture/xmark_circle.png')}}" alt="削除" class="btn-delete" >
-        </form>
       </div>
       <table>
         <tr>
@@ -126,6 +121,9 @@
         <tr>
           <td width="100" height="45" class="confirm-content">Number</td>
           <td class="confirm-content">{{$reservation->number_people}}人</td>
+        </tr>
+        <tr>
+          <td class="confirm-content" colspan="2">※当日の変更・キャンセルの場合は直接ご連絡ください。</td>
         </tr>
       </table>
     @endif

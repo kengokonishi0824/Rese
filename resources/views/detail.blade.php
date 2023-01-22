@@ -23,6 +23,8 @@
     </div>
     <img src="{{$restaurants->picture}}" class="detail-picture">
     <p class="">#{{$restaurants->prefecture->prefecture}} #{{$restaurants->category->category}}</p>
+    <p class="">#予約可能時間　{{substr($restaurants->start_reservation,0,5)}}~{{substr($restaurants->last_reservation,0,5)}}</p>
+    <p class="">#予約可能人数　{{$restaurants->number_people}}人まで</p>
     <p class="">{{$restaurants->overview}}</p>
   </div>
   <div class="detail-right">
@@ -38,16 +40,23 @@
             <input type="date" name="reservation_date" class="reservation-form-box" id="reservation-form-date" value="{{old('reservation_date')}}">
           </p>
           <p>
-            <input type="time" name="reservation_time" class="reservation-form-box" id="reservation-form-time" value="{{old('reservation_time')}}">
+            <select name = "reservation_time" class="reservation-form-box" id="reservation-form-time">
+            <option value="{{old('reservation_time')}}" selected>{{substr(old('reservation_time'),0,5)}}</option>
+            @foreach ($times as $time)
+            @if($restaurants->start_reservation <= $time->time & $time->time <= $restaurants->last_reservation)
+            <option value="{{substr($time->time,0,5)}}">{{substr($time->time,0,5)}}</option>
+            @endif
+            @endforeach
+            </select>
           </p>
           <p>
             <select name="number_people" class="reservation-form-box" id="reservation-form-number">
-              <option value="" selected>{{old('number_people')}}人</option>
-              <option value="1">1人</option>
-              <option value="2">2人</option>
-              <option value="3">3人</option>
-              <option value="4">4人</option>
-              <option value="5">5人</option>
+              <option value="{{old('number_people')}}" selected>{{old('number_people')}}人</option>
+              @foreach ($people as $person)
+              @if($person->number_people <= $restaurants->number_people)
+              <option value="{{$person->number_people}}">{{$person->number_people}}人</option>
+              @endif
+              @endforeach
             </select>
           </p>
           </div>
@@ -69,7 +78,7 @@
               </tr>
               <tr>
                 <td width="100" height="45" class="confirm-content">Time</td>
-                <td class="confirm-content" id="confirmtime">{{old('reservation_time')}}</td>
+                <td class="confirm-content" id="confirmtime">{{substr(old('reservation_time'),0,5)}}</td>
               </tr>
               <tr>
                 @error('reservation_time')

@@ -21,6 +21,9 @@ class CreateRestaurantsTable extends Migration
             $table->foreignId('category_id')->constrained('categories')->nullable();
             $table->string('overview', 500)->nullable();
             $table->string('picture', 500)->nullable();
+            $table->unsignedBigInteger('number_people')->nullable();
+            $table->time('start_reservation')->nullable();
+            $table->time('last_reservation')->nullable();
         });
     }
 

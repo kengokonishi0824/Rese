@@ -8,6 +8,8 @@ use App\Models\Category;
 use App\Models\Like;
 use App\Models\Reservation;
 use App\Models\Review;
+use App\Models\Time;
+use App\Models\People;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\ReservationRequest;
@@ -51,7 +53,9 @@ class ReseController extends Controller
     {
         $user = Auth::user();
         $restaurants = Restaurant::all()->find($id);
-        return view('detail',['user' =>$user,'restaurants' => $restaurants]);
+        $people = People::all();
+        $times = Time::all();
+        return view('detail',['user' =>$user,'restaurants' => $restaurants, 'people' => $people, 'times' => $times]);
     }
 
     public function reservation(ReservationRequest $request)
@@ -75,8 +79,10 @@ class ReseController extends Controller
     public function mypage_change($id)
     {
         $user = Auth::user();
+        $people = People::all();
+        $times = Time::all();
         $reservations = Reservation::all()->find($id);
-        return view('change',['user' =>$user,'reservations' => $reservations]);
+        return view('change',['user' =>$user,'reservations' => $reservations, 'people' => $people, 'times' => $times]);
     }
 
     public function change_reservation(ReservationRequest $request)

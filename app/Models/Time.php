@@ -11,4 +11,12 @@ class Time extends Model
 
     protected $fillable = ['time_hour'];
 
+    public function restaurant(){
+        return $this->hasMany('App\Models\Restaurant');
+    }
+
+    public function reservation(){
+        return $this->hasMany('App\Models\Reservation');
+    }
+
 }

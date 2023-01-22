@@ -19,4 +19,8 @@ class Reservation extends Model
         return $this->belongsTo('App\Models\User');
     }
 
+    public function rime(){
+        return $this->belongsTo('App\Models\Time');
+    }
+
 }

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Restaurant extends Model
 {
     use HasFactory;
-    protected $fillable = ['name','prefecture_id','category_id','overview','picture'];
+    protected $fillable = ['name','prefecture_id','category_id','overview','picture','start_reservation', 'last_reservation'];
 
     public function prefecture(){
 				return $this->belongsTo('App\Models\Prefecture');
@@ -16,6 +16,10 @@ class Restaurant extends Model
 
     public function category(){
 				return $this->belongsTo('App\Models\Category');
+    }
+
+    public function time(){
+				return $this->belongsTo('App\Models\Time');
     }
 
     public static function doSearch($name, $prefecture_id,  $category_id)

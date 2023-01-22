@@ -139,5 +139,25 @@ class TimesTableSeeder extends Seeder
         ];
         Time::create($param);
 
+        $param = [
+            'time_hour' => 25,
+        ];
+        Time::create($param);
+
+        $param = [
+            'time_hour' => 26,
+        ];
+        Time::create($param);
+
+        $param = [
+            'time_hour' => 27,
+        ];
+        Time::create($param);
+
+        $param = [
+            'time_hour' => 28,
+        ];
+        Time::create($param);
+
     }
 }

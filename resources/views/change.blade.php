@@ -22,6 +22,7 @@
     </div>
     <img src="{{$reservations->restaurant->picture}}" class="detail-picture">
     <p class="">#{{$reservations->restaurant->prefecture->prefecture}} #{{$reservations->restaurant->category->category}}</p>
+    <p class="">#予約可能時間　{{substr($reservations->restaurant->start_reservation,0,5)}}~{{substr($reservations->restaurant->last_reservation,0,5)}}</p>
     <p class="">{{$reservations->restaurant->overview}}</p>
   </div>
   <div class="detail-right">
@@ -41,7 +42,25 @@
             @endif
           </p>
           <p>
-            <input type="time" name="reservation_time" class="reservation-form-box" id="reservation-form-time" value="{{$reservations->reservation_time}}">
+            @if(old('reservation_time') == null)
+            <select name = "reservation_time" class="reservation-form-box" id="reservation-form-time">
+            <option value="{{substr($reservations->reservation_time,0,5)}}" selected>{{substr($reservations->reservation_time,0,5)}}</option>
+            @foreach ($times as $time)
+            @if($reservations->restaurant->start_reservation <= $time->time & $time->time <= $reservations->restaurant->last_reservation)
+            <option value="{{substr($time->time,0,5)}}">{{substr($time->time,0,5)}}</option>
+            @endif
+            @endforeach
+            </select>
+            @else
+            <select name = "reservation_time" class="reservation-form-box" id="reservation-form-time">
+            <option value="{{substr(old('reservation_time'),0,5)}}" selected>{{substr(old('reservation_time'),0,5)}}</option>
+            @foreach ($times as $time)
+            @if($reservations->restaurant->start_reservation <= $time->time & $time->time <= $reservations->restaurant->last_reservation)
+            <option value="{{substr($time->time,0,5)}}">{{substr($time->time,0,5)}}</option>
+            @endif
+            @endforeach
+            </select>
+            @endif
           </p>
           <p>
             <select name="number_people" class="reservation-form-box" id="reservation-form-number" >

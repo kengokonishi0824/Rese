@@ -39,14 +39,14 @@
             <input type="date" name="reservation_date" class="reservation-form-box" id="reservation-form-date" value="{{old('reservation_date')}}">
           </p>
           <p>
-            <select name = "reservation_hour" class="reservation-form-box">
+            <select name = "reservation_time" class="reservation-form-box" id="reservation-form-time">
+            <option value="{{old('reservation_time')}}" selected>{{substr(old('reservation_time'),0,5)}}</option>
             @foreach ($times as $time)
-            @if($restaurants->start_reservation <= $time->time_hour & $time->time_hour <= $restaurants->last_reservation)
-            <option value="{{$time->time_hour}}">{{$time->time_hour}}</option>
+            @if($restaurants->start_reservation <= $time->time & $time->time <= $restaurants->last_reservation)
+            <option value="{{substr($time->time,0,5)}}">{{substr($time->time,0,5)}}</option>
             @endif
             @endforeach
             </select>
-            <input type="time" name="reservation_time" class="reservation-form-box" id="reservation-form-time" value="{{old('reservation_time')}}">
           </p>
           <p>
             <select name="number_people" class="reservation-form-box" id="reservation-form-number">
@@ -77,7 +77,7 @@
               </tr>
               <tr>
                 <td width="100" height="45" class="confirm-content">Time</td>
-                <td class="confirm-content" id="confirmtime">{{old('reservation_time')}}</td>
+                <td class="confirm-content" id="confirmtime">{{substr(old('reservation_time'),0,5)}}</td>
               </tr>
               <tr>
                 @error('reservation_time')

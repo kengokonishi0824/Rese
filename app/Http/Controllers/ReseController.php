@@ -79,9 +79,10 @@ class ReseController extends Controller
     public function mypage_change($id)
     {
         $user = Auth::user();
+        $people = People::all();
         $times = Time::all();
         $reservations = Reservation::all()->find($id);
-        return view('change',['user' =>$user,'reservations' => $reservations, 'times' => $times]);
+        return view('change',['user' =>$user,'reservations' => $reservations, 'people' => $people, 'times' => $times]);
     }
 
     public function change_reservation(ReservationRequest $request)

@@ -23,6 +23,7 @@
     <img src="{{$reservations->restaurant->picture}}" class="detail-picture">
     <p class="">#{{$reservations->restaurant->prefecture->prefecture}} #{{$reservations->restaurant->category->category}}</p>
     <p class="">#予約可能時間　{{substr($reservations->restaurant->start_reservation,0,5)}}~{{substr($reservations->restaurant->last_reservation,0,5)}}</p>
+    <p class="">#予約可能人数　{{$reservations->restaurant->number_people}}人まで</p>
     <p class="">{{$reservations->restaurant->overview}}</p>
   </div>
   <div class="detail-right">
@@ -65,20 +66,15 @@
           <p>
             <select name="number_people" class="reservation-form-box" id="reservation-form-number" >
               @if(old('number_people') == null)
-              <option value="{{ $reservations->number_people}}" selected>{{$reservations->number_people}}人</option>
-              <option value="1">1人</option>
-              <option value="2">2人</option>
-              <option value="3">3人</option>
-              <option value="4">4人</option>
-              <option value="5">5人</option>
+              <option value="{{$reservations->number_people}}" selected>{{$reservations->number_people}}人</option>
               @else
-              <option value="{{ $reservations->number_people}}" selected>{{old('number_people')}}人</option>
-              <option value="1">1人</option>
-              <option value="2">2人</option>
-              <option value="3">3人</option>
-              <option value="4">4人</option>
-              <option value="5">5人</option>
+              <option value="{{old('number_people')}}" selected>{{old('number_people')}}人</option>
               @endif
+              @foreach ($people as $person)
+              @if($person->number_people <= $reservations->restaurant->number_people)
+              <option value="{{$person->number_people}}">{{$person->number_people}}人</option>
+              @endif
+              @endforeach
             </select>
           </p>
           </div>

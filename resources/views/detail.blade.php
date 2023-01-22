@@ -51,12 +51,12 @@
           </p>
           <p>
             <select name="number_people" class="reservation-form-box" id="reservation-form-number">
-              <option value="" selected>{{old('number_people')}}人</option>
-              <option value="1">1人</option>
-              <option value="2">2人</option>
-              <option value="3">3人</option>
-              <option value="4">4人</option>
-              <option value="5">5人</option>
+              <option value="{{old('number_people')}}" selected>{{old('number_people')}}人</option>
+              @foreach ($people as $person)
+              @if($person->number_people <= $restaurants->number_people)
+              <option value="{{$person->number_people}}">{{$person->number_people}}人</option>
+              @endif
+              @endforeach
             </select>
           </p>
           </div>

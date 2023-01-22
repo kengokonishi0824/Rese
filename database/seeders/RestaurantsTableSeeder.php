@@ -36,8 +36,8 @@ class RestaurantsTableSeeder extends Seeder
             'category_id' => Category::all()->where('category','焼肉')->first()->id,
             'overview' => '焼肉業界で20年間経験を積み、肉を熟知したマスターによる実力派焼肉店。長年の実績とお付き合いをもとに、なかなか食べられない希少部位も仕入れております。また、ゆったりとくつろげる空間はお仕事終わりの一杯や女子会にぴったりです。',
             'picture' =>'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/yakiniku.jpg',
-            'start_reservation' => "10:00",
-            'last_reservation' => "20:00",
+            'start_reservation' => "11:00",
+            'last_reservation' => "21:00",
             'number_people' => 10
 
     ];
@@ -49,8 +49,8 @@ class RestaurantsTableSeeder extends Seeder
             'category_id' => Category::all()->where('category','居酒屋')->first()->id,
             'overview' => '気軽に立ち寄れる昔懐かしの大衆居酒屋です。キンキンに冷えたビールを、なんと199円で。鳥かわ煮込み串は販売総数100000本突破の名物料理です。仕事帰りに是非御来店ください。',
             'picture' =>'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/izakaya.jpg',
-            'start_reservation' => "10:00",
-            'last_reservation' => "20:00",
+            'start_reservation' => "17:00",
+            'last_reservation' => "23:00",
             'number_people' => 20
 
     ];
@@ -62,8 +62,8 @@ class RestaurantsTableSeeder extends Seeder
             'category_id' => Category::all()->where('category','イタリアン')->first()->id,
             'overview' => '都心にひっそりとたたずむ、古民家を改築した落ち着いた空間です。イタリアで修業を重ねたシェフによるモダンなイタリア料理とソムリエセレクトによる厳選ワインとのペアリングが好評です。ゆっくりと上質な時間をお楽しみください。',
             'picture' =>'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/italian.jpg',
-            'start_reservation' => "10:00",
-            'last_reservation' => "20:00",
+            'start_reservation' => "11:00",
+            'last_reservation' => "21:00",
             'number_people' => 10
 
     ];

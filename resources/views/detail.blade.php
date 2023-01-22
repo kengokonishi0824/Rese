@@ -23,7 +23,7 @@
     </div>
     <img src="{{$restaurants->picture}}" class="detail-picture">
     <p class="">#{{$restaurants->prefecture->prefecture}} #{{$restaurants->category->category}}</p>
-    <p class="">#予約可能時間　{{$restaurants->start_reservation}}:00~{{$restaurants->last_reservation}}:00</p>
+    <p class="">#予約可能時間　{{substr($restaurants->start_reservation,0,5)}}~{{substr($restaurants->last_reservation,0,5)}}</p>
     <p class="">{{$restaurants->overview}}</p>
   </div>
   <div class="detail-right">

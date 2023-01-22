@@ -15,147 +15,274 @@ class TimesTableSeeder extends Seeder
     public function run()
     {
         $param = [
-            'time_hour' => 0,
+            'time' => '00:00',
         ];
         Time::create($param);
 
         $param = [
-            'time_hour' => 1,
+            'time' => '00:30',
         ];
         Time::create($param);
 
         $param = [
-            'time_hour' => 2,
+            'time' => '01:00',
         ];
         Time::create($param);
 
         $param = [
-            'time_hour' => 3,
+            'time' => '01:30',
         ];
         Time::create($param);
 
         $param = [
-            'time_hour' => 4,
+            'time' => '02:00',
         ];
         Time::create($param);
 
         $param = [
-            'time_hour' => 5,
+            'time' => '02:30',
         ];
         Time::create($param);
 
         $param = [
-            'time_hour' => 6,
+            'time' => '03:00',
         ];
         Time::create($param);
 
         $param = [
-            'time_hour' => 7,
+            'time' => '03:30',
         ];
         Time::create($param);
 
         $param = [
-            'time_hour' => 8,
+            'time' => '04:00',
+        ];
+        Time::create($param);
+        $param = [
+            'time' => '04:30',
         ];
         Time::create($param);
 
         $param = [
-            'time_hour' => 9,
+            'time' => '05:00',
         ];
         Time::create($param);
 
         $param = [
-            'time_hour' => 10,
+            'time' => '05:30',
         ];
         Time::create($param);
 
         $param = [
-            'time_hour' => 11,
+            'time' => '06:00',
         ];
         Time::create($param);
 
         $param = [
-            'time_hour' => 12,
+            'time' => '06:30',
         ];
         Time::create($param);
 
         $param = [
-            'time_hour' => 13,
+            'time' => '07:00',
         ];
         Time::create($param);
 
         $param = [
-            'time_hour' => 14,
+            'time' => '07:30',
         ];
         Time::create($param);
 
         $param = [
-            'time_hour' => 15,
+            'time' => '08:00',
         ];
         Time::create($param);
 
         $param = [
-            'time_hour' => 16,
+            'time' => '08:30',
         ];
         Time::create($param);
 
         $param = [
-            'time_hour' => 17,
+            'time' => '09:00',
         ];
         Time::create($param);
 
         $param = [
-            'time_hour' => 18,
+            'time' => '09:30',
         ];
         Time::create($param);
 
         $param = [
-            'time_hour' => 19,
+            'time' => '10:00',
         ];
         Time::create($param);
 
         $param = [
-            'time_hour' => 20,
+            'time' => '10:30',
         ];
         Time::create($param);
 
         $param = [
-            'time_hour' => 21,
+            'time' => '11:00',
         ];
         Time::create($param);
 
         $param = [
-            'time_hour' => 22,
+            'time' => '11:30',
         ];
         Time::create($param);
 
         $param = [
-            'time_hour' => 23,
+            'time' => '12:00',
         ];
         Time::create($param);
 
         $param = [
-            'time_hour' => 24,
+            'time' => '12:30',
         ];
         Time::create($param);
 
         $param = [
-            'time_hour' => 25,
+            'time' => '13:00',
         ];
         Time::create($param);
 
         $param = [
-            'time_hour' => 26,
+            'time' => '13:30',
         ];
         Time::create($param);
 
         $param = [
-            'time_hour' => 27,
+            'time' => '14:00',
         ];
         Time::create($param);
 
         $param = [
-            'time_hour' => 28,
+            'time' => '14:30',
+        ];
+        Time::create($param);
+        $param = [
+            'time' => '15:00',
+        ];
+        Time::create($param);
+
+        $param = [
+            'time' => '15:30',
+        ];
+        Time::create($param);
+        $param = [
+            'time' => '16:00',
+        ];
+        Time::create($param);
+
+        $param = [
+            'time' => '16:30',
+        ];
+        Time::create($param);
+
+        $param = [
+            'time' => '17:00',
+        ];
+        Time::create($param);
+
+        $param = [
+            'time' => '17:30',
+        ];
+        Time::create($param);
+
+        $param = [
+            'time' => '18:00',
+        ];
+        Time::create($param);
+
+        $param = [
+            'time' => '18:30',
+        ];
+        Time::create($param);
+
+        $param = [
+            'time' => '19:00',
+        ];
+        Time::create($param);
+
+        $param = [
+            'time' => '19:30',
+        ];
+        Time::create($param);
+
+        $param = [
+            'time' => '20:00',
+        ];
+        Time::create($param);
+
+        $param = [
+            'time' => '20:30',
+        ];
+        Time::create($param);
+
+        $param = [
+            'time' => '21:00',
+        ];
+        Time::create($param);
+
+        $param = [
+            'time' => '21:30',
+        ];
+        Time::create($param);
+
+        $param = [
+            'time' => '22:00',
+        ];
+        Time::create($param);
+
+        $param = [
+            'time' => '22:30',
+        ];
+        Time::create($param);
+
+        $param = [
+            'time' => '23:00',
+        ];
+        Time::create($param);
+
+        $param = [
+            'time' => '23:30',
+        ];
+        Time::create($param);
+
+        $param = [
+            'time' => '24:00',
+        ];
+        Time::create($param);
+
+        $param = [
+            'time' => '24:30',
+        ];
+        Time::create($param);
+
+        $param = [
+            'time' => '25:00',
+        ];
+        Time::create($param);
+
+        $param = [
+            'time' => '25:30',
+        ];
+        Time::create($param);
+
+        $param = [
+            'time' => '26:00',
+        ];
+        Time::create($param);
+
+        $param = [
+            'time' => '26:30',
+        ];
+        Time::create($param);
+
+        $param = [
+            'time' => '27:00',
         ];
         Time::create($param);
 

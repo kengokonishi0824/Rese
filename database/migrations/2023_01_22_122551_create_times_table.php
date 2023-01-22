@@ -16,7 +16,7 @@ class CreateTimesTable extends Migration
         Schema::create('times', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer('time_hour');
+            $table->time('time');
         });
     }
 

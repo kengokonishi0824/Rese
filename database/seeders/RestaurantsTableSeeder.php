@@ -24,7 +24,8 @@ class RestaurantsTableSeeder extends Seeder
             'overview' => '料理長厳選の食材から作る寿司を用いたコースをぜひお楽しみください。食材・味・価格、お客様の満足度を徹底的に追及したお店です。特別な日のお食事、ビジネス接待まで気軽に使用することができます。',
             'picture' =>'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/sushi.jpg',
             'start_reservation' => "10:00",
-            'last_reservation' => "20:00"
+            'last_reservation' => "20:00",
+            'number_people' => 4
 
     ];
     Restaurant::create($param);
@@ -36,7 +37,8 @@ class RestaurantsTableSeeder extends Seeder
             'overview' => '焼肉業界で20年間経験を積み、肉を熟知したマスターによる実力派焼肉店。長年の実績とお付き合いをもとに、なかなか食べられない希少部位も仕入れております。また、ゆったりとくつろげる空間はお仕事終わりの一杯や女子会にぴったりです。',
             'picture' =>'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/yakiniku.jpg',
             'start_reservation' => "10:00",
-            'last_reservation' => "20:00"
+            'last_reservation' => "20:00",
+            'number_people' => 10
 
     ];
     Restaurant::create($param);
@@ -48,7 +50,8 @@ class RestaurantsTableSeeder extends Seeder
             'overview' => '気軽に立ち寄れる昔懐かしの大衆居酒屋です。キンキンに冷えたビールを、なんと199円で。鳥かわ煮込み串は販売総数100000本突破の名物料理です。仕事帰りに是非御来店ください。',
             'picture' =>'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/izakaya.jpg',
             'start_reservation' => "10:00",
-            'last_reservation' => "20:00"
+            'last_reservation' => "20:00",
+            'number_people' => 20
 
     ];
     Restaurant::create($param);
@@ -60,7 +63,8 @@ class RestaurantsTableSeeder extends Seeder
             'overview' => '都心にひっそりとたたずむ、古民家を改築した落ち着いた空間です。イタリアで修業を重ねたシェフによるモダンなイタリア料理とソムリエセレクトによる厳選ワインとのペアリングが好評です。ゆっくりと上質な時間をお楽しみください。',
             'picture' =>'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/italian.jpg',
             'start_reservation' => "10:00",
-            'last_reservation' => "20:00"
+            'last_reservation' => "20:00",
+            'number_people' => 10
 
     ];
     Restaurant::create($param);
@@ -129,7 +133,8 @@ $param = [
             'overview' => '鮨好きの方の為の鮨屋として、迫力ある大きさの握りを1貫ずつ提供致します。',
             'picture' =>'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/sushi.jpg',
             'start_reservation' => "10:00",
-            'last_reservation' => "20:00"
+            'last_reservation' => "20:00",
+            'number_people' => 4
 
     ];
     Restaurant::create($param);
@@ -140,7 +145,8 @@ $param = [
             'overview' => '最高級の美味しいお肉で日々の疲れを軽減していただければと贅沢にサーロインを盛り込んだ御膳をご用意しております。',
             'picture' =>'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/yakiniku.jpg',
             'start_reservation' => "10:00",
-            'last_reservation' => "20:00"
+            'last_reservation' => "20:00",
+            'number_people' => 4
 
     ];
     Restaurant::create($param);
@@ -151,7 +157,8 @@ $param = [
             'overview' => '当店自慢の鍋や焼き鳥などお好きなだけ堪能できる食べ放題プランをご用意しております。飲み放題は2時間と3時間がございます。',
             'picture' =>'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/izakaya.jpg',
             'start_reservation' => "10:00",
-            'last_reservation' => "20:00"
+            'last_reservation' => "20:00",
+            'number_people' => 4
 
     ];
     Restaurant::create($param);
@@ -162,7 +169,8 @@ $param = [
             'overview' => 'ミシュラン掲載店で磨いた、寿司職人の旨さへのこだわりはもちろん、 食事をゆっくりと楽しんでいただける空間作りも意識し続けております。 接待や大切なお食事にはぜひご利用ください。',
             'picture' =>'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/sushi.jpg',
             'start_reservation' => "10:00",
-            'last_reservation' => "20:00"
+            'last_reservation' => "20:00",
+            'number_people' => 4
 
     ];
     Restaurant::create($param);

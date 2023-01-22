@@ -24,6 +24,7 @@
     <img src="{{$restaurants->picture}}" class="detail-picture">
     <p class="">#{{$restaurants->prefecture->prefecture}} #{{$restaurants->category->category}}</p>
     <p class="">#予約可能時間　{{substr($restaurants->start_reservation,0,5)}}~{{substr($restaurants->last_reservation,0,5)}}</p>
+    <p class="">#予約可能人数　{{$restaurants->number_people}}人まで</p>
     <p class="">{{$restaurants->overview}}</p>
   </div>
   <div class="detail-right">

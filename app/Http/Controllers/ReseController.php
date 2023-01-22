@@ -9,6 +9,7 @@ use App\Models\Like;
 use App\Models\Reservation;
 use App\Models\Review;
 use App\Models\Time;
+use App\Models\People;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\ReservationRequest;
@@ -52,8 +53,9 @@ class ReseController extends Controller
     {
         $user = Auth::user();
         $restaurants = Restaurant::all()->find($id);
+        $people = People::all();
         $times = Time::all();
-        return view('detail',['user' =>$user,'restaurants' => $restaurants, 'times' => $times]);
+        return view('detail',['user' =>$user,'restaurants' => $restaurants, 'people' => $people, 'times' => $times]);
     }
 
     public function reservation(ReservationRequest $request)

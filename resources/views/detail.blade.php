@@ -23,6 +23,7 @@
     </div>
     <img src="{{$restaurants->picture}}" class="detail-picture">
     <p class="">#{{$restaurants->prefecture->prefecture}} #{{$restaurants->category->category}}</p>
+    <p class="">#予約可能時間　{{$restaurants->start_reservation}}:00~{{$restaurants->last_reservation}}:00</p>
     <p class="">{{$restaurants->overview}}</p>
   </div>
   <div class="detail-right">
@@ -38,6 +39,13 @@
             <input type="date" name="reservation_date" class="reservation-form-box" id="reservation-form-date" value="{{old('reservation_date')}}">
           </p>
           <p>
+            <select name = "reservation_hour" class="reservation-form-box">
+            @foreach ($times as $time)
+            @if($restaurants->start_reservation <= $time->time_hour & $time->time_hour <= $restaurants->last_reservation)
+            <option value="{{$time->time_hour}}">{{$time->time_hour}}</option>
+            @endif
+            @endforeach
+            </select>
             <input type="time" name="reservation_time" class="reservation-form-box" id="reservation-form-time" value="{{old('reservation_time')}}">
           </p>
           <p>

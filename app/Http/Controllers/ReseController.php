@@ -52,7 +52,8 @@ class ReseController extends Controller
     {
         $user = Auth::user();
         $restaurants = Restaurant::all()->find($id);
-        return view('detail',['user' =>$user,'restaurants' => $restaurants]);
+        $times = Time::all();
+        return view('detail',['user' =>$user,'restaurants' => $restaurants, 'times' => $times]);
     }
 
     public function reservation(ReservationRequest $request)

@@ -8,21 +8,13 @@
   <title>admin_page</title>
 </head>
 
-<div>
-  <p>
-    ログイン中：{{ Auth::guard('admin')->user()->name ?? 'undefined' }}
-  </p>
-  <p>
-    <a href="{{ route('admin.logout') }}">
-      ログアウト
-    </a>
-  </P>
+
   <p>
     <a href="/admin">
       HOMEに戻る
     </a>
   </P>
-</div>
+
 
 <div class="page-breeze">
     <div class="header-breeze">

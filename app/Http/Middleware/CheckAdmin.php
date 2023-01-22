@@ -17,7 +17,7 @@ class CheckAdmin
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user()->admin_level !== '1') {
+        if (Auth::guard('admin')->user()->admin_level !== '1') {
         return redirect()->route('admin.manager');
     }
         return $next($request);

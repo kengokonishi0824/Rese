@@ -173,8 +173,6 @@
     <?php $number++;?>
     @endif
     @endforeach
-  </div>
-
 
 
   <div class="mypage-right">

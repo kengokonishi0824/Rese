@@ -35,7 +35,7 @@ class AdminsTableseeder extends Seeder
 
         $param = [
             'name' => '仙人マネジャー',
-            'email' => 'manger@example.com',
+            'email' => 'manager@example.com',
             'password' => Hash::make('password'),
             'VPN' => '1',
             'admin_level' => 2

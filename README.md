@@ -31,7 +31,11 @@
 <p></p>
 
 ## テーブル設計
-<p><img src="public/picture/table_figure2.png"></p>
+<p>
+<img src="public/picture/table_figure1.png">
+<img src="public/picture/table_figure2.png">
+<img src="public/picture/table_figure3.png">
+</p>
 
 ## ER図<
 <p><img src="public/picture/ERdrawing.png"></p>
